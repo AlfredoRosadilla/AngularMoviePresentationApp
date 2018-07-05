@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { Route } from '@app/core';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  Route.withShell([
-    { path: 'about', loadChildren: 'app/about/about.module#AboutModule' }
-  ]),
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: []
 })

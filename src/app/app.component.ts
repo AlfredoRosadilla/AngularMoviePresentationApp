@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { Title } from '@angular/platform-browser';
-import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService } from '@app/core';
+import { Logger, I18nService } from '@app/services';
 
 const log = new Logger('App');
 
@@ -17,11 +17,13 @@ const log = new Logger('App');
 })
 export class AppComponent implements OnInit {
 
-  constructor(private router: Router,
-              private activatedRoute: ActivatedRoute,
-              private titleService: Title,
-              private translateService: TranslateService,
-              private i18nService: I18nService) { }
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    private i18nService: I18nService,
+    private activatedRoute: ActivatedRoute,
+    private translateService: TranslateService,
+  ) { }
 
   ngOnInit() {
     // Setup logger
@@ -30,8 +32,7 @@ export class AppComponent implements OnInit {
     }
 
     log.debug('init');
-
-
+    
     // Setup translations
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
 

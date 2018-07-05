@@ -1,7 +1,6 @@
 {
   "name": "angular-movie-presentation-app",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "ng": "ng",
     "build": "npm run env -s && ng build --prod",

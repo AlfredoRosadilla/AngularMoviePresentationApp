@@ -1,8 +1,8 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateModule } from '@ngx-translate/core';
 
-import { CoreModule } from '@app/core';
+import { ServicesModule } from '@app/services';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -11,7 +11,7 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
-        CoreModule
+        ServicesModule
       ],
       declarations: [AppComponent],
       providers: []
