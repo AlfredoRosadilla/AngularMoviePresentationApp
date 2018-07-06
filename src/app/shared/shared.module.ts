@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './header/header.component';
 import { LoaderComponent } from './loader/loader.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { LoaderComponent } from './loader/loader.component';
     ShellComponent,
     LoaderComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   exports: [
     ShellComponent,
