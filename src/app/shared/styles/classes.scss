@@ -1,0 +1,37 @@
+/**
+  General classes to use trough the platform
+ */
+
+.global {
+  &_pointer_cursor {
+    cursor: pointer;
+  }
+
+  &_remove_outline_focous {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &_fit-content {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+
+  &_overflow_auto {
+    overflow: auto;
+  }
+
+  &_uppercase {
+    text-transform: uppercase;
+  }
+
+  &_lowercase {
+    text-transform: lowercase;
+  }
+
+  &_capitalize {
+    text-transform: capitalize;
+  }
+}

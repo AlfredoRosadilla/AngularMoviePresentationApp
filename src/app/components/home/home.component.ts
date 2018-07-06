@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { finalize } from 'rxjs/operators';
+import { MoviesService, IMovie } from '@app/services';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +9,16 @@ import { finalize } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
   public isLoading: boolean;
+  public movies: IMovie[];
 
-  constructor() { }
+  constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
     this.isLoading = true;
 
-    setTimeout(() => {
+    this.moviesService.getAll().subscribe((movies: IMovie[]) => {
+      this.movies = movies;
       this.isLoading = false;
-    }, 5000)
+    })
   }
 }

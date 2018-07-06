@@ -1,4 +1,5 @@
 import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
 import { GenreType } from './movie.model';
@@ -23,10 +24,20 @@ export class MoviesService {
   constructor() { }
 
   /**
+   * @return {number} between 0 - maxDelayTime, it represents delay time.
+   * Get a number used to simulate request time
+   */
+  private delayRequest(): number {
+    const maxDelayTime = 4000;
+
+    return Math.floor(Math.random() * maxDelayTime);
+  }
+
+  /**
    * Return all Movies
    */
   getAll(): Observable<IMovie[]> {
-    return of(movies);
+    return of(movies).pipe(delay(this.delayRequest()));
   }
 
   /**
@@ -35,13 +46,13 @@ export class MoviesService {
    * Get a movie by id, otherwise returns null
    */
   getById(id: number): Observable<IMovie> {
-    return of(movies.find((movie: IMovie) => movie.id === id));
+    return of(movies.find((movie: IMovie) => movie.id === id)).pipe(delay(this.delayRequest()));
   }
 
   /**
    * Return all Genres
    */
   getGenres(): Observable<string[]> {
-    return of(Object.values(GenreType));
+    return of(Object.values(GenreType)).pipe(delay(this.delayRequest()));
   }
 }

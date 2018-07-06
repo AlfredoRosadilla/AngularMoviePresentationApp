@@ -5,10 +5,11 @@ import { MaterialModule } from '@app/material.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { ShellComponent } from './shell/shell.component';
-import { HeaderComponent } from './header/header.component';
-import { LoaderComponent } from './loader/loader.component';
-import { FooterComponent } from './footer/footer.component';
+import { ShellComponent } from './components/shell/shell.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { FooterComponent } from './footer/footer.component';
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
-    
+
     TranslateModule,
   ],
   declarations: [
@@ -24,11 +25,12 @@ import { FooterComponent } from './footer/footer.component';
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
+    MovieCardComponent,
   ],
   exports: [
     ShellComponent,
     LoaderComponent,
-    HeaderComponent,
+    MovieCardComponent,
   ]
 })
 export class SharedModule { }

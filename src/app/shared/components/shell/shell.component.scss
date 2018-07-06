@@ -32,7 +32,7 @@
 // See https://angular.io/guide/component-styles#deep
 :host ::ng-deep .mat-drawer-backdrop {
   top: 64px;
-  bottom: 0;
+  bottom: 64px;
   left: 0;
   right: 0;
   height: auto;
@@ -44,5 +44,6 @@
   .mat-drawer-content,
   :host ::ng-deep .mat-drawer-backdrop {
     top: 56px;
+    bottom: 56px;
   }
 }

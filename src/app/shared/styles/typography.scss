@@ -1,0 +1,158 @@
+@import 'src/theme/theme-variables';
+@import './colors';
+
+/**
+  HEADING
+ */
+$typo-family: 'Circular Std Book';
+$typo-family-bold: 'Circular Std Bold';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+span, p {
+  font-family: $typo-family;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+input, textarea {
+  box-sizing: border-box;
+  font-family: $typo-family;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $color-02;
+  font-size: 16px; // Min 16px to avoid mobile automatic zoom
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-input-placeholder, &:-ms-input-placeholder, &:-moz-placeholder, &::-moz-placeholder {
+    font-family: $typo-family;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $color-03;
+    opacity: 0.46;
+  }
+}
+
+a {
+  width: 69px;
+  height: 18px;
+  font-family: $typo-family;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  text-decoration: none;
+  color: $color-01;
+}
+
+h1 {
+  font-family: $typo-family;
+  font-size: 48px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $color-02;
+}
+
+h2 {
+  font-family: $typo-family;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $color-02;
+}
+
+h3 {
+  font-family: $typo-family-bold;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $color-02;
+}
+
+h4 {
+  font-family: $typo-family-bold;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $color-02;
+}
+
+h5 {
+  font-family: $typo-family;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $color-02;
+}
+
+.own_body_text {
+  font-family: $typo-family;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: $color-02;
+}
+
+.own_label_text {
+  font-family: $typo-family;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $color-02;
+}
+// Just are missing the other elements of typography below - we have to add them

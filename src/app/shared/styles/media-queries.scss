@@ -1,0 +1,113 @@
+$mobile-min-width: 0;
+$tablet-min-width: 600px;
+$desktop-min-width: 960px;
+
+@mixin mobile {
+  @media (min-width: #{$mobile-min-width}) and (max-width: #{$tablet-min-width - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-min-width - 1}) and (max-width: #{$desktop-min-width - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-min-width - 1}) {
+    @content;
+  }
+}
+
+.just_mobile {
+  @include tablet() {
+    display: none;
+  }
+
+  @include desktop() {
+    display: none;
+  }
+}
+
+.hide_mobile {
+  @include mobile() {
+    display: none;
+  }
+}
+
+.just_tablet {
+  @include mobile() {
+    display: none;
+  }
+
+  @include desktop() {
+    display: none;
+  }
+}
+
+.hide_tablet {
+  @include tablet() {
+    display: none;
+  }
+}
+
+.just_desktop {
+  @include mobile() {
+    display: none;
+  }
+
+  @include tablet() {
+    display: none;
+  }
+}
+
+.hide_desktop {
+  @include desktop() {
+    display: none;
+  }
+}
+
+@mixin breakpoint($type, $fallback:false, $parent:true) {
+  @if $type == 'mobile-tablet' {
+    @media (max-width: $desktop-min-width - 1){
+      @content;
+    }
+  }
+
+  @if $type == 'tablet-desktop' {
+    @media (min-width: $tablet-min-width){
+      @content;
+    }
+  }
+
+  @if $type == 'mobile' {
+    @media (min-width: #{$mobile-min-width}) and (max-width: #{$tablet-min-width - 1}) {
+      @content;
+    }
+  }
+
+  @if $type == 'tablet' {
+    @media (min-width: #{$tablet-min-width - 1}) and (max-width: #{$desktop-min-width - 1}) {
+      @content;
+    }
+  }
+
+  @if $type == 'desktop'{
+    @media (min-width: #{$desktop-min-width - 1}) and (max-width: #{$desktop-min-width-max}) {
+      @content;
+    }
+  }
+
+  @if $fallback {
+    @if $parent {
+      .#{$fallback} & {
+        @content;
+      }
+    } @else {
+      .#{$fallback} {
+        @content;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.home {
+  min-height: 100%;
+  padding: 24px;
+
+  app-loader {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__grilla_item {
+    height: 50vh;
+    min-height: 300px;
+  }
+}
