@@ -48,5 +48,4 @@ export class HeaderComponent implements OnInit {
   get title(): string {
     return this.titleService.getTitle();
   }
-
 }

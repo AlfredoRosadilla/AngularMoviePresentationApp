@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { MaterialModule } from '@app/material.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,6 +15,8 @@ import { LoaderComponent } from './loader/loader.component';
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
+    
+    TranslateModule,
   ],
   declarations: [
     ShellComponent,
