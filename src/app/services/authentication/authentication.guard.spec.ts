@@ -3,11 +3,9 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { AuthenticationGuard } from './authentication.guard';
 import { AuthenticationService } from './authentication.service';
-import { MockAuthenticationService } from './authentication.service.mock';
 
 describe('AuthenticationGuard', () => {
   let authenticationGuard: AuthenticationGuard;
-  let authenticationService: MockAuthenticationService;
   let mockRouter: any;
 
   beforeEach(() => {
@@ -17,7 +15,6 @@ describe('AuthenticationGuard', () => {
     TestBed.configureTestingModule({
       providers: [
         AuthenticationGuard,
-        { provide: AuthenticationService, useClass: MockAuthenticationService },
         { provide: Router, useValue: mockRouter },
       ]
     });
@@ -26,11 +23,9 @@ describe('AuthenticationGuard', () => {
   beforeEach(inject([
     AuthenticationGuard,
     AuthenticationService
-  ], (_authenticationGuard: AuthenticationGuard,
-      _authenticationService: MockAuthenticationService) => {
+  ], (_authenticationGuard: AuthenticationGuard) => {
 
     authenticationGuard = _authenticationGuard;
-    authenticationService = _authenticationService;
   }));
 
   it('should have a canActivate method', () => {
@@ -42,9 +37,6 @@ describe('AuthenticationGuard', () => {
   });
 
   it('should return false and redirect to login if user is not authenticated', () => {
-    // Arrange
-    authenticationService.credentials = null;
-
     // Act
     const result = authenticationGuard.canActivate();
 

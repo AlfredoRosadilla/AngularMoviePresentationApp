@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ShellComponent } from './shell.component';
 import { AuthenticationService } from '@app/services';
-import { MockAuthenticationService } from '@app/services/authentication/authentication.service.mock';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -18,9 +17,6 @@ describe('ShellComponent', () => {
         TranslateModule.forRoot(),
         BrowserAnimationsModule,
       ],
-      providers: [
-        { provide: AuthenticationService, useClass: MockAuthenticationService }
-      ]
     })
     .compileComponents();
   }));
