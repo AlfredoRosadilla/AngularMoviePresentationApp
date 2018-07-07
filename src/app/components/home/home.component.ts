@@ -8,8 +8,9 @@ import { MoviesService, IMovie } from '@app/services';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public isLoading: boolean;
   public movies: IMovie[];
+  public isLoading: boolean;
+  public lastMovie: IMovie;
 
   constructor(private moviesService: MoviesService) { }
 
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
     this.isLoading = true;
 
     this.moviesService.getAll().subscribe((movies: IMovie[]) => {
-      this.movies = movies;
+      this.lastMovie = movies[0];
+      this.movies = movies.slice(1);
       this.isLoading = false;
     })
   }

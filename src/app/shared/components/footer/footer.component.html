@@ -1,5 +1,15 @@
 <mat-toolbar class="mat-elevation-z6 footer" color="primary">
-  <div fxLayoutAlign="start center">
-    <span class="title">Alfredo Sebastian Rosadilla Ribeiro</span>
-  </div>
+  <ng-template [ngIf]="!media.isActive('xs')" [ngIfElse]="mobileOptions">
+    <div fxLayoutAlign="start center">
+      <span class="title" translate>footer_text</span>
+    </div>
+  </ng-template>
+
+  <ng-template #mobileOptions>
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-icon-button><mat-icon>reorder</mat-icon></button>
+      <button mat-icon-button><mat-icon>favorite</mat-icon></button>
+      <button mat-icon-button><mat-icon>home</mat-icon></button>
+    </div>
+  </ng-template>
 </mat-toolbar>

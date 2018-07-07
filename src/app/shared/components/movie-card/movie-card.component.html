@@ -1,3 +1,9 @@
-<div class="movie-card">
-  <img [src]="data.img" alt="Image not found">
+<div class="movie-card" fxLayoutAlign="center center">
+  <ng-template [ngIf]="isLoading" [ngIfElse]="coverImage">
+    <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
+  </ng-template>
+
+  <ng-template #coverImage>
+    <img [src]="data.imageData" alt="Image not found">
+  </ng-template>
 </div>

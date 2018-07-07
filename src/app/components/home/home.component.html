@@ -1,18 +1,18 @@
-<div class="home" fxFlex="100" fxLayoutAlign="center center">
-  <ng-template [ngIf]="isLoading" [ngIfElse]="grilla">
-    <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
-  </ng-template>
+<div class="home" fxFlex="100">
+  <section fxFlex="100">
+    <div class="home__search_container">
 
-  <ng-template #grilla>
-    <div fxLayout="row wrap" fxLayoutGap="10px grid">
-      <div
-        fxFlex="25"
-        fxFlex.md="33"
-        fxFlex.xs="100"
-        class="home__grilla_item"
-        *ngFor="let movie of movies">
-        <app-movie-card [data]="movie"></app-movie-card>
-      </div>
     </div>
-  </ng-template>
+
+    <div class="home__main_movie">
+      <img src="" alt="">
+    </div>
+  </section>
+
+  <section fxFlex="100">
+    <app-movie-grilla
+      [data]="movies"
+      [isLoading]="isLoading">
+    </app-movie-grilla>
+  </section>
 </div>

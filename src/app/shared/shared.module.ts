@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MovieGrillaComponent } from './components/movie-grilla/movie-grilla.component';
 
 @NgModule({
   imports: [
@@ -26,11 +27,13 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     HeaderComponent,
     FooterComponent,
     MovieCardComponent,
+    MovieGrillaComponent,
   ],
   exports: [
     ShellComponent,
     LoaderComponent,
     MovieCardComponent,
+    MovieGrillaComponent,
   ]
 })
 export class SharedModule { }

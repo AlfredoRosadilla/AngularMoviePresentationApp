@@ -35,3 +35,21 @@
     text-transform: capitalize;
   }
 }
+
+@mixin ampapp__mobile_button() {
+  background-color: $white;
+  height: 40px;
+}
+
+.ampapp {
+  &__mobile_button {
+    @include ampapp__mobile_button();
+
+    &__type01 {
+      @include ampapp__mobile_button();
+
+      border-radius: 100%;
+      width: 40px;
+    }
+  }
+}

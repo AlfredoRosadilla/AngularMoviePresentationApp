@@ -2,8 +2,11 @@ import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+
 import { GenreType } from './movie.model';
 import { movies } from './movie.mock-data';
+import { environment } from '@env/environment';
 
 export interface IMovie {
   id: number;
@@ -12,6 +15,7 @@ export interface IMovie {
   name: string;
   rate: string;
   length: string;
+  imageData?: any;
   genres: string[];
   description: string;
 }
@@ -21,7 +25,7 @@ export interface IMovie {
 })
 export class MoviesService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   /**
    * @return {number} between 0 - maxDelayTime, it represents delay time.
@@ -54,5 +58,37 @@ export class MoviesService {
    */
   getGenres(): Observable<string[]> {
     return of(Object.values(GenreType)).pipe(delay(this.delayRequest()));
+  }
+
+  /**
+   * This method allow us simulate lazy load
+   * @param {IMovie} used to generate image url
+   *
+   * Get an image from a Movie instance
+   */
+  getMovieImage(movie: IMovie): Observable<any> {
+    return new Observable((observer: any) => {
+      const imageUrl = `${environment.serverUrl}assets/images/${movie.img}`;
+      const request= this.http.get(imageUrl, { responseType: 'blob' });
+
+      request.pipe(delay(this.delayRequest()));
+
+      request.subscribe((imageData: Blob) => {
+        try {
+          const reader = new FileReader();
+
+          reader.addEventListener('load', () => {
+            observer.next(reader.result);
+            observer.complete();
+          }, false);
+
+          reader.readAsDataURL(imageData);
+        } catch(error) {
+          observer.error(error);
+        }
+      }, (error: any) => {
+        observer.error(error);
+      });
+    })
   }
 }

@@ -1,3 +1,13 @@
 {
-  "APP_NAME": "AMPApp"
+  "APP_NAME": "AMPApp",
+
+  "header_home": "HOME",
+  "header_about": "SOBRE MI",
+  "header_logout": "Desloguearse",
+  "header_logged-as": "Logueado como",
+
+  "shell_home": "Home",
+  "shell_about": "Sobre mi",
+
+  "footer_text": "Alfredo Sebastian Rosadilla Ribeiro"
 }
