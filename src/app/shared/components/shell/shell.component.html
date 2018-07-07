@@ -4,14 +4,35 @@
       <nav>
         <mat-list>
           <mat-divider></mat-divider>
+          <a mat-list-item class="not-action user-name">
+            <span><b translate>shell_logged-as</b>&nbsp;<b>{{ username }}</b></span>
+          </a>
+          <mat-divider></mat-divider>
+
+          <a mat-list-item class="not-action">
+            <span><b translate>shell_main-pages</b></span>
+          </a>
           <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="sidenav.close()">
-            <span translate>shell_home</span>
+            <span>&emsp;&emsp;</span><span translate>shell_home</span>
           </a>
-          <mat-divider></mat-divider>
           <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="sidenav.close()">
-            <span translate>shell_about</span>
+            <span>&emsp;&emsp;</span><span translate>shell_about</span>
           </a>
           <mat-divider></mat-divider>
+
+          <a mat-list-item routerLink="/account" routerLinkActive="active" (click)="sidenav.close()">
+            <span><b translate>shell_account</b></span>
+          </a>
+          <mat-divider></mat-divider>
+
+          <a mat-list-item routerLink="/help" routerLinkActive="active" (click)="sidenav.close()">
+            <span><b translate>shell_help</b></span>
+          </a>
+          <mat-divider></mat-divider>
+
+          <a mat-list-item (click)="sidenav.close() && logout()">
+            <span><b translate>shell_logout</b></span>
+          </a>
         </mat-list>
       </nav>
     </mat-sidenav>

@@ -20,8 +20,9 @@
 
 .mat-list-item {
   text-decoration: none;
+  outline: none;
 
-  &:hover {
+  &:hover:not(.not-action) {
     background: rgba(0, 0, 0, 0.05);
   }
 }

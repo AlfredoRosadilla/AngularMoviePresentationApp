@@ -1,35 +1,40 @@
 <mat-toolbar class="mat-elevation-z6 navbar" color="primary">
-  <div fxHide.gt-sm fxLayoutAlign="start center">
+  <div fxHide.sm fxHide.gt-sm fxLayoutAlign="start center">
     <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-  <div fxHide.lt-md>
+  <div fxHide.lt-sm>
     <span class="brand" translate>APP_NAME</span>
     <button mat-button routerLink="/home" routerLinkActive="active">
-      <mat-icon>home</mat-icon>
       <span translate>header_home</span>
     </button>
     <button mat-button routerLink="/about" routerLinkActive="active">
-      <mat-icon>info</mat-icon>
       <span translate>header_about</span>
+    </button>
+    <button mat-button routerLink="/help" routerLinkActive="active">
+      <span translate>header_help</span>
     </button>
   </div>
   <span fxFlex></span>
-  <button mat-icon-button fxHide.gt-sm="true">
+  <button mat-icon-button routerLink="/search" routerLinkActive="active">
     <mat-icon>search</mat-icon>
   </button>
-  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+  <button mat-icon-button fxHide.lt-sm>
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button mat-icon-button fxHide.lt-sm [matMenuTriggerFor]="userMenu">
     <mat-icon>person</mat-icon>
   </button>
 
-  <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+  <mat-menu #userMenu="matMenu" class="ampapp__user_menu" [overlapTrigger]="false">
     <mat-list>
-      <mat-list-item>
+      <mat-list-item fxLayoutAlign="center center">
         <span translate>header_logged-as</span>&nbsp;<b>{{username}}</b>
       </mat-list-item>
       <mat-divider></mat-divider>
     </mat-list>
-    <button mat-menu-item (click)="logout()" translate>Logout</button>
+    <button mat-menu-item translate>header_account</button>
+    <button mat-menu-item (click)="logout()" translate>header_logout</button>
   </mat-menu>
 </mat-toolbar>

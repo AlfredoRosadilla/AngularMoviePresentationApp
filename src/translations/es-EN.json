@@ -1,13 +1,20 @@
 {
-  "APP_NAME": "AMPApp",
+  "APP_NAME": "AMPA",
 
-  "header_home": "HOME",
-  "header_about": "SOBRE MI",
+  "header_help": "Ayuda",
+  "header_home": "Inicio",
+  "header_about": "Sobre mi",
   "header_logout": "Desloguearse",
   "header_logged-as": "Logueado como",
+  "header_account": "Configuraciones",
 
-  "shell_home": "Home",
+  "shell_help": "Ayuda",
+  "shell_home": "Inicio",
   "shell_about": "Sobre mi",
+  "shell_logout": "Desloguearse",
+  "shell_logged-as": "Logueado como",
+  "shell_main-pages": "Principales paginas",
+  "shell_account": "Configuraciones de cuenta",
 
   "footer_text": "Alfredo Sebastian Rosadilla Ribeiro"
 }
