@@ -8,9 +8,8 @@
       <div
         class="grid__item"
         [fxFlex]="gridDistribution"
-        (click)="movieSelected(movie)"
         *ngFor="let movie of movies">
-        <app-movie-card [data]="movie"></app-movie-card>
+        <app-movie-card [data]="movie" (select)="select.emit($event)"></app-movie-card>
       </div>
     </div>
   </ng-template>

@@ -9,9 +9,17 @@ div {
   border: solid 1px $color-02;
   height: 42px;
 
+  &.disabled {
+    background-color: $color-03;
+  }
+
   input {
     border: 0;
     width: calc(100% - #{2 * $mat-icon-margin + 24px});
+
+    &[disabled] {
+      background-color: $color-04;
+    }
   }
 
   mat-icon {

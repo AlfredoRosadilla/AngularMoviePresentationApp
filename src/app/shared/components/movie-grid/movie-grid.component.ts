@@ -19,7 +19,7 @@ export class MovieGridComponent implements OnInit {
   @Input('data') movies: IMovie[] = null;
   @Input('isLoading') isLoading: boolean = true;
 
-  @Output() selectMovie ?= new EventEmitter();
+  @Output() select ?= new EventEmitter<IMovie>();
 
   public gridDistribution: number = 25;
 
@@ -62,9 +62,5 @@ export class MovieGridComponent implements OnInit {
     } else {
       this.gridDistribution = 25;
     }
-  }
-
-  public movieSelected(movie: IMovie) {
-    this.selectMovie.emit(movie);
   }
 }

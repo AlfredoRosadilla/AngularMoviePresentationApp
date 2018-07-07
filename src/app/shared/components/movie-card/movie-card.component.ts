@@ -1,4 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Input,
+  Output,
+  OnInit,
+  Component,
+  EventEmitter
+} from '@angular/core';
 
 import { IMovie, MoviesService } from '@app/services';
 
@@ -9,6 +15,8 @@ import { IMovie, MoviesService } from '@app/services';
 })
 export class MovieCardComponent implements OnInit {
   @Input('data') data: IMovie;
+
+  @Output() select ?= new EventEmitter<IMovie>();
 
   public isLoading: boolean = true;
 

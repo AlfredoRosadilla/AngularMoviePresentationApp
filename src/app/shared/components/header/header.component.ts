@@ -1,6 +1,6 @@
-import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material';
 import { Title } from '@angular/platform-browser';
+import { Router, NavigationEnd } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
 import { AuthenticationService, I18nService } from '@app/services';
@@ -13,6 +13,8 @@ import { AuthenticationService, I18nService } from '@app/services';
 export class HeaderComponent implements OnInit {
   @Input() sidenav: MatSidenav;
 
+  public showSearch = true;
+
   constructor(
     private router: Router,
     private titleService: Title,
@@ -20,7 +22,17 @@ export class HeaderComponent implements OnInit {
     private authenticationService: AuthenticationService,
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.router.url === '/search') {
+      this.showSearch = false;
+    }
+
+    this.router.events.subscribe(($event: any) => {
+      if ($event instanceof NavigationEnd) {
+        this.showSearch = Boolean($event.url !== '/search');
+      }
+    });
+  }
 
   setLanguage(language: string) {
     this.i18nService.language = language;

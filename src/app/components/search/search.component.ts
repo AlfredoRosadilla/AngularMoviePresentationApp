@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
@@ -18,6 +19,7 @@ export class SearchComponent implements OnInit {
   public isLoading: boolean = true;
 
   constructor(
+    private router: Router,
     public media: ObservableMedia,
     public moviesService: MoviesService
   ) { }
@@ -50,5 +52,9 @@ export class SearchComponent implements OnInit {
     if (typeof criteria === 'string') {
       this.filterMovies = this.movies.filter((movie: IMovie) => movie.searchCriteria.indexOf(criteria.toLowerCase()) !== -1);
     }
+  }
+
+  movieSelected(movie: IMovie) {
+    this.router.navigate(['detail', movie.id]);
   }
 }

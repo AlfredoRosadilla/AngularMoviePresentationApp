@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { SearchModule } from './search/search.module';
+import { MovieDetailModule } from './movie-detail/movie-detail.module';
 
 @NgModule({
   imports: [
@@ -12,12 +13,14 @@ import { SearchModule } from './search/search.module';
     HomeModule,
     LoginModule,
     SearchModule,
+    MovieDetailModule,
   ],
   declarations: [],
   exports: [
     HomeModule,
     LoginModule,
     SearchModule,
+    MovieDetailModule,
   ]
 })
 export class ComponentsModule { }

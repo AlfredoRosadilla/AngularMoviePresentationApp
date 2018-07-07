@@ -7,9 +7,15 @@
 
   <ng-template #mobileOptions>
     <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
-      <button mat-icon-button><mat-icon>favorite</mat-icon></button>
-      <button mat-icon-button routerLink="/home" routerLinkActive="active"><mat-icon>home</mat-icon></button>
-      <button mat-icon-button><mat-icon>notifications</mat-icon></button>
+      <button mat-icon-button (click)="executeAction('left-button')">
+        <mat-icon>{{ isCurrentView('home') ? 'playlist_play' : 'keyboard_arrow_left' }}</mat-icon>
+      </button>
+      <button mat-icon-button routerLink="/home" routerLinkActive="active">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button (click)="executeAction('right-button')">
+        <mat-icon>{{ isCurrentView('detail') ? 'favorite' : 'notifications' }}</mat-icon>
+      </button>
     </div>
   </ng-template>
 </mat-toolbar>

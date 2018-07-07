@@ -1,4 +1,4 @@
-<div class="movie-card" fxLayoutAlign="center center">
+<div class="movie-card" fxLayoutAlign="center center" (click)="!isLoading && select.emit(data)">
   <ng-template [ngIf]="isLoading" [ngIfElse]="coverImage">
     <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
   </ng-template>

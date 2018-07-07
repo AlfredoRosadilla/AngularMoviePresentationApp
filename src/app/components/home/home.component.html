@@ -1,6 +1,6 @@
 <div class="home" fxFlex="100">
   <section fxFlex="100">
-    <div class="home__main_movie" fxLayoutAlign="center center">
+    <div class="home__main_movie" fxLayoutAlign="center center" (click)="movieSelected(lastMovie)">
       <ng-template [ngIf]="!lastMovie || !lastMovie.imageData" [ngIfElse]="coverPageImage">
         <app-loader [isLoading]="true" size="1.5"></app-loader>
       </ng-template>
@@ -14,7 +14,8 @@
   <section fxFlex="100">
     <app-movie-grid
       [data]="movies"
-      [isLoading]="isLoading">
+      [isLoading]="isLoading"
+      (select)="movieSelected($event)">
     </app-movie-grid>
   </section>
 </div>

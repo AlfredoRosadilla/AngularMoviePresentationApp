@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
@@ -13,7 +14,11 @@ export class HomeComponent implements OnInit {
   public isLoading: boolean;
   public lastMovie: IMovie;
 
-  constructor(private moviesService: MoviesService, public media: ObservableMedia) { }
+  constructor(
+    private router: Router,
+    public media: ObservableMedia,
+    private moviesService: MoviesService,
+  ) { }
 
   ngOnInit() {
     this.isLoading = true;
@@ -29,5 +34,9 @@ export class HomeComponent implements OnInit {
         console.error(error);
       })
     })
+  }
+
+  movieSelected(movie: IMovie) {
+    this.router.navigate(['detail', movie.id]);
   }
 }

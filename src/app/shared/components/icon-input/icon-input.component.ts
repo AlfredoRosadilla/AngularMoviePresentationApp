@@ -10,6 +10,7 @@ export class IconInputComponent implements OnInit {
   @Input() icon = '';
   @Input() value ?= '';
   @Input() type ?= 'text';
+  @Input() disabled ?= false;
   @Input() placeholder ?= '';
 
   @Output() change ?= new EventEmitter();
