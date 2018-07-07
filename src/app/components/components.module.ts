@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
+import { SearchModule } from './search/search.module';
 
 @NgModule({
   imports: [
@@ -10,11 +11,13 @@ import { LoginModule } from './login/login.module';
 
     HomeModule,
     LoginModule,
+    SearchModule,
   ],
   declarations: [],
   exports: [
     HomeModule,
     LoginModule,
+    SearchModule,
   ]
 })
 export class ComponentsModule { }

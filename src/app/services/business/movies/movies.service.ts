@@ -24,15 +24,16 @@ export interface IMovie {
   providedIn: 'root'
 })
 export class MoviesService {
+  private imagesCache: any = {};
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   /**
    * @return {number} between 0 - maxDelayTime, it represents delay time.
    * Get a number used to simulate request time
    */
   private delayRequest(): number {
-    const maxDelayTime = 4000;
+    const maxDelayTime = 5000;
 
     return Math.floor(Math.random() * maxDelayTime);
   }
@@ -65,30 +66,53 @@ export class MoviesService {
    * @param {IMovie} used to generate image url
    *
    * Get an image from a Movie instance
+   * If the image is not in memory apply lazy load
+   * and save image on service memory.
+   *
+   * For cache solution it's possible use too sessionStorage, localStorage
+   * or even cookies (deprecate way).
+   *
+   * In this particular case it is better use service memory for avoid the
+   * evaluator user needs to open other tab to see lazy load feature.
+   *
+   * On a real case it is better use at least sessionStorage for improve
+   * assets loading covering too those cases where the user need reload
+   * the browser tab or even navigate and return to the page.
+   *
+   * localStorage it is the better option but too the most hardly because
+   * needs to implement a complex logic to recognize oldest assets otherway
+   * the application doesn't recognize server assets changes.
    */
   getMovieImage(movie: IMovie): Observable<any> {
     return new Observable((observer: any) => {
-      const imageUrl = `${environment.serverUrl}assets/images/${movie.img}`;
-      const request= this.http.get(imageUrl, { responseType: 'blob' });
+      if (this.imagesCache[movie.id]) {
+        observer.next(this.imagesCache[movie.id]);
+        observer.complete();
+      } else {
+        const imageUrl = `${environment.serverUrl}assets/images/${movie.img}`;
+        const request= this.http.get(imageUrl, { responseType: 'blob' });
 
-      request.pipe(delay(this.delayRequest()));
+        request.pipe(delay(this.delayRequest()));
 
-      request.subscribe((imageData: Blob) => {
-        try {
-          const reader = new FileReader();
+        request.subscribe((imageData: Blob) => {
+          try {
+            const reader = new FileReader();
 
-          reader.addEventListener('load', () => {
-            observer.next(reader.result);
-            observer.complete();
-          }, false);
+            reader.addEventListener('load', () => {
+              observer.next(reader.result);
+              observer.complete();
 
-          reader.readAsDataURL(imageData);
-        } catch(error) {
+              this.imagesCache[movie.id] = reader.result;
+            }, false);
+
+            reader.readAsDataURL(imageData);
+          } catch(error) {
+            observer.error(error);
+          }
+        }, (error: any) => {
           observer.error(error);
-        }
-      }, (error: any) => {
-        observer.error(error);
-      });
+        });
+      }
     })
   }
 }
