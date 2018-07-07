@@ -3,8 +3,18 @@
   padding: 24px;
 
   &__main_movie {
-    height: 30vh;
+    height: 36vh;
     min-height: 200px;
     width: 100%;
+
+    img {
+      object-fit: fill;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  section:first-child {
+    margin-bottom: 24px;
   }
 }

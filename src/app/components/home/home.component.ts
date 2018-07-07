@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
 import { MoviesService, IMovie } from '@app/services';
 
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   public isLoading: boolean;
   public lastMovie: IMovie;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, public media: ObservableMedia) { }
 
   ngOnInit() {
     this.isLoading = true;
@@ -21,6 +22,12 @@ export class HomeComponent implements OnInit {
       this.lastMovie = movies[0];
       this.movies = movies.slice(1);
       this.isLoading = false;
+
+      this.moviesService.getMovieImage(this.lastMovie).subscribe((image: any) => {
+        this.lastMovie.imageData = image;
+      }, (error: any) => {
+        console.error(error);
+      })
     })
   }
 }
