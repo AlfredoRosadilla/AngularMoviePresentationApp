@@ -8,6 +8,14 @@
   "header_logged-as": "Logged in as",
   "header_account": "Account Settings",
 
+  "login_login": "Login",
+  "login_username": "Username",
+  "login_password": "Password",
+  "login_rember": "Remember me",
+  "login_username-required": "Username is required",
+  "login_password-required": "Password is required",
+  "login_user-or-passwor-incorrect": "Username or password incorrect.",
+
   "shell_home": "Home",
   "shell_help": "Help",
   "shell_about": "About",
@@ -15,6 +23,8 @@
   "shell_main-pages": "Main pages",
   "shell_logged-as": "Logged in as",
   "shell_account": "Account Settings",
+
+  "search_placeholder": "Genres, name or description",
 
   "detail_rate": "Rate",
   "detail_name": "Name",

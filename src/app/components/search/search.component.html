@@ -7,7 +7,7 @@
         [value]="inputValue"
         [disabled]="isLoading"
         (change)="search($event)"
-        placeholder="Genres, name or description">
+        [placeholder]="'search_placeholder' | translate">
       </app-icon-input>
     </div>
 

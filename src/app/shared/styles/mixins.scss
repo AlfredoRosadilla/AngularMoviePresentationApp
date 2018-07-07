@@ -4,12 +4,6 @@
  SOME BASIC MIXINS TO REUSE ALONG THE PLATFORM
  */
 
-@mixin placeholder() {
-  font-family: 'Circular Std Book';
-  font-size: 14px;
-  color: $greyish-brown;
-}
-
 @mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {
   transform: rotate($deg + deg);
   -o-transform: rotate($deg + deg);

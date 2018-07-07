@@ -6,7 +6,9 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import { IMovie, MoviesService } from '@app/services';
+import { IMovie, MoviesService, Logger } from '@app/services';
+
+const log = new Logger('Login');
 
 @Component({
   selector: 'app-movie-card',
@@ -39,7 +41,7 @@ export class MovieCardComponent implements OnInit {
       this.data.imageData = image;
       this.isLoading = false;
     }, (error: any) => {
-      console.error(error);
+      log.error(error);
     })
   }
 }

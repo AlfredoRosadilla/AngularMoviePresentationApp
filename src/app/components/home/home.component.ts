@@ -2,7 +2,9 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
-import { MoviesService, IMovie } from '@app/services';
+import { MoviesService, IMovie, Logger } from '@app/services';
+
+const log = new Logger('Login');
 
 @Component({
   selector: 'app-home',
@@ -31,7 +33,7 @@ export class HomeComponent implements OnInit {
       this.moviesService.getMovieImage(this.lastMovie).subscribe((image: any) => {
         this.lastMovie.imageData = image;
       }, (error: any) => {
-        console.error(error);
+        log.error(error);
       })
     })
   }

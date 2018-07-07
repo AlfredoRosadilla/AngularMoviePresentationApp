@@ -3,7 +3,9 @@ import { Observable, forkJoin } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
-import { IMovie, MoviesService } from '@app/services';
+import { IMovie, MoviesService, Logger } from '@app/services';
+
+const log = new Logger('Login');
 
 @Component({
   selector: 'app-search',
@@ -40,7 +42,7 @@ export class SearchComponent implements OnInit {
 
       this.isLoading = false;
     }, (error: any) => {
-      console.error(error);
+      log.error(error);
     })
   }
 

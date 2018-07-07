@@ -8,6 +8,14 @@
   "header_logged-as": "Logueado como",
   "header_account": "Configuraciones",
 
+  "login_login": "Entrar",
+  "login_remember": "Recuerdame",
+  "login_password": "Contraseña",
+  "login_username": "Nombre de usuario",
+  "login_password-required": "Introduzca una contraseña",
+  "login_username-required": "Introduzca un nombre de usuario",
+  "login_user-or-passwor-incorrect": "Nombre de usuario o ccontraseña incorrecta.",
+
   "shell_help": "Ayuda",
   "shell_home": "Inicio",
   "shell_about": "Sobre mi",
@@ -15,6 +23,8 @@
   "shell_logged-as": "Logueado como",
   "shell_main-pages": "Principales paginas",
   "shell_account": "Configuraciones de cuenta",
+
+  "search_placeholder": "Generos, nombre o descripcion",
 
   "detail_name": "Titulo",
   "detail_rate": "Puntaje",
