@@ -40,6 +40,8 @@ export class FooterComponent implements OnInit {
         // this.router.navigate(['favorite']);
       } else if (this.lastView) {
         this.location.back();
+      } else {
+        this.router.navigate(['home']);
       }
     } else if (description === 'right-button') {
 

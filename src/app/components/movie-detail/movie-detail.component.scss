@@ -1,0 +1,32 @@
+@import 'src/app/shared/styles/index';
+
+.detail {
+  padding: 24px;
+
+  &.loading {
+    min-height: 100%;
+  }
+
+  @include mobile() {
+    padding: 0;
+  }
+
+  section {
+    $max-width: 700px;
+
+    margin-top: 24px;
+    max-width: $max-width;
+
+    img {
+      max-width: $max-width;
+    }
+
+    h4 {
+      margin-top: 35px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

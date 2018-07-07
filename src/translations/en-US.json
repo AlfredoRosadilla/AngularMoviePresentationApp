@@ -16,5 +16,12 @@
   "shell_logged-as": "Logged in as",
   "shell_account": "Account Settings",
 
+  "detail_rate": "Rate",
+  "detail_name": "Name",
+  "detail_genres": "Genres",
+  "detail_length": "Duration",
+  "detail_description": "Description",
+  "detail_video-not-supported": "Your browser does not support the video tag.",
+
   "footer_text": "Alfredo Sebastian Rosadilla Ribeiro"
 }

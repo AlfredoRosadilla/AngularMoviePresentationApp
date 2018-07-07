@@ -16,5 +16,12 @@
   "shell_main-pages": "Principales paginas",
   "shell_account": "Configuraciones de cuenta",
 
+  "detail_name": "Titulo",
+  "detail_rate": "Puntaje",
+  "detail_genres": "Generos",
+  "detail_length": "Duracion",
+  "detail_description": "Descripcion",
+  "detail_video-not-supported": "Tu navegador no soporta la tag de video.",
+
   "footer_text": "Alfredo Sebastian Rosadilla Ribeiro"
 }

@@ -1,3 +1,54 @@
-<p>
-  movie-detail works!
-</p>
+<div
+  fxFlex="100"
+  class="detail"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  [ngClass]="{'loading': !movie}">
+  <ng-template [ngIf]="!movie" [ngIfElse]="data">
+    <app-loader [isLoading]="true" size="1.5"></app-loader>
+  </ng-template>
+
+  <ng-template #data>
+    <section fxFlex="100">
+      <div class="home__main_movie" fxLayoutAlign="center center">
+        <ng-template [ngIf]="!movie.imageData" [ngIfElse]="coverPageImage">
+          <app-loader [isLoading]="true" size="1.5"></app-loader>
+        </ng-template>
+
+        <ng-template #coverPageImage>
+          <img [src]="movie.imageData" alt="Image not found">
+        </ng-template>
+      </div>
+    </section>
+
+    <section fxFlex="100">
+      <video fxFlex="100" controls>
+        <source src="assets/video/deadpool.mp4" type="video/mp4">
+        <span translate>detail_video-not-supported</span>
+      </video>
+    </section>
+
+    <section fxFlex="100">
+      <mat-card>
+        <h4 translate>detail_name</h4>
+        <p>{{ movie.name || '' }}</p>
+        <mat-divider></mat-divider>
+
+        <h4 translate>detail_description</h4>
+        <p>{{ movie.description || '' }}</p>
+        <mat-divider></mat-divider>
+
+        <h4 translate>detail_genres</h4>
+        <p>{{ movie.genres.join(', ') }}</p>
+        <mat-divider></mat-divider>
+
+        <h4 translate>detail_rate</h4>
+        <p>{{ movie.rate || '0' }}</p>
+        <mat-divider></mat-divider>
+
+        <h4 translate>detail_length</h4>
+        <p>{{ movie.length || 'not found' }}</p>
+      </mat-card>
+    </section>
+  </ng-template>
+</div>
