@@ -1,3 +1,34 @@
-<p>
-  search works!
-</p>
+<div class="search" fxFlex="100" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="12px">
+  <section class="search__search_section" fxFlex="30" fxFlex.lt-sm="100">
+    <div>
+      <app-icon-input
+        type="text"
+        icon="search"
+        [value]="inputValue"
+        placeholder="Search..."
+        (change)="search($event)">
+      </app-icon-input>
+    </div>
+
+    <div>
+      <ng-template [ngIf]="!media.isActive('lt-sm')" [ngIfElse]="mobileTags">
+        <mat-list role="list">
+          <mat-list-item
+            role="listitem"
+            *ngFor="let genre of genres"
+            (click)="search(genre); inputValue = genre">
+            <span>{{ genre }}</span>
+          </mat-list-item>
+        </mat-list>
+      </ng-template>
+
+      <ng-template #mobileTags>
+
+      </ng-template>
+    </div>
+  </section>
+
+  <section fxFlex="70" fxFlex.lt-sm="100" class="search__grid_section">
+    <app-movie-grid [data]="filterMovies" [isLoading]="isLoading"></app-movie-grid>
+  </section>
+</div>

@@ -1,17 +1,11 @@
-.grilla {
+.grid {
   height: 100%;
   width: 100%;
 
   app-loader {
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-  }
-
-  &__item {
-    height: 50%;
-    min-height: 300px;
   }
 }

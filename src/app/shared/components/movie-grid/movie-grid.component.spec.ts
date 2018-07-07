@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovieGrillaComponent } from './movie-grilla.component';
+import { MovieGridComponent } from './movie-grid.component';
 
-describe('MovieGrillaComponent', () => {
-  let component: MovieGrillaComponent;
-  let fixture: ComponentFixture<MovieGrillaComponent>;
+describe('MovieGridComponent', () => {
+  let component: MovieGridComponent;
+  let fixture: ComponentFixture<MovieGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieGrillaComponent ]
+      declarations: [ MovieGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MovieGrillaComponent);
+    fixture = TestBed.createComponent(MovieGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

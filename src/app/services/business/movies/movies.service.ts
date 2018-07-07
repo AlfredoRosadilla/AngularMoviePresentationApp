@@ -15,9 +15,11 @@ export interface IMovie {
   name: string;
   rate: string;
   length: string;
-  imageData?: any;
   genres: string[];
   description: string;
+
+  imageData?: any;
+  searchCriteria?: string;
 }
 
 @Injectable({
@@ -33,7 +35,7 @@ export class MoviesService {
    * Get a number used to simulate request time
    */
   private delayRequest(): number {
-    const maxDelayTime = 5000;
+    const maxDelayTime = 3000;
 
     return Math.floor(Math.random() * maxDelayTime);
   }

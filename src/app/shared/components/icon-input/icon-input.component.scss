@@ -1,0 +1,23 @@
+@import 'src/app/shared/styles/index';
+
+$mat-icon-margin: 4px;
+$mat-icon-dimensions: 26px;
+
+div {
+  border-radius: 3px;
+  background-color: $white;
+  border: solid 1px $color-02;
+  height: 42px;
+
+  input {
+    border: 0;
+    width: calc(100% - #{2 * $mat-icon-margin + 24px});
+  }
+
+  mat-icon {
+    font-size: $mat-icon-dimensions;
+    height: $mat-icon-dimensions;
+    margin: 0 $mat-icon-margin;
+    width: $mat-icon-dimensions;
+  }
+}
