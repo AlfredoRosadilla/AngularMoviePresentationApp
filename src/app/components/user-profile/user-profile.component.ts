@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthenticationService, I18nService, ThemeService } from '@app/services';
+import {
+  I18nService,
+  AlertService,
+  ThemeService,
+  AuthenticationService,
+} from '@app/services';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,12 +13,13 @@ import { AuthenticationService, I18nService, ThemeService } from '@app/services'
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  private _oldPassword = '';
-  private _newPassword = '';
+  private oldPassword = '';
+  private newPassword = '';
   public themeSelected: string = '';
 
   constructor(
     private i18nService: I18nService,
+    private alertService: AlertService,
     private themeService: ThemeService,
     private authenticationService: AuthenticationService
   ) { }
@@ -41,14 +47,6 @@ export class UserProfileComponent implements OnInit {
     return this.i18nService.supportedLanguages;
   }
 
-  set oldPassword(oldPassword: string) {
-    this._oldPassword = oldPassword;
-  }
-
-  set newPassword(newPassword: string) {
-    this._newPassword = newPassword;
-  }
-
   get themeList(): string[] {
     return this.themeService.themeList;
   }
@@ -59,5 +57,13 @@ export class UserProfileComponent implements OnInit {
 
   setTheme(theme: any) {
     this.themeService.setTheme(theme.value);
+  }
+
+  changePassword() {
+    this.alertService.showAlert('information', {
+      text: 'This is a cool alert',
+      solution: 'This feature was not created yet',
+      translate: ['text', 'solution']
+    });
   }
 }

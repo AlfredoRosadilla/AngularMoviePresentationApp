@@ -4,6 +4,7 @@ import { MatSidenav } from '@angular/material';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
+import { AlertService } from '@app/services/alert/alert.service';
 import { ThemeService } from '@app/services/theme/theme.service';
 import { AuthenticationService } from '@app/services/authentication/authentication.service';
 
@@ -19,6 +20,7 @@ export class ShellComponent implements OnInit {
     private router: Router,
     private media: ObservableMedia,
     public themeService: ThemeService,
+    public alertService: AlertService,
     private authenticationService: AuthenticationService,
   ) { }
 

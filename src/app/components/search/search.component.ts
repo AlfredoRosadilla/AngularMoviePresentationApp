@@ -3,7 +3,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
-import { IMovie, MoviesService, Logger } from '@app/services';
+import { IMovie, MoviesService, Logger, AlertService } from '@app/services';
 
 const log = new Logger('Login');
 
@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
   constructor(
     private router: Router,
     public media: ObservableMedia,
+    private alertService: AlertService,
     public moviesService: MoviesService
   ) { }
 
@@ -42,6 +43,7 @@ export class SearchComponent implements OnInit {
 
       this.isLoading = false;
     }, (error: any) => {
+      this.alertService.showAlert();
       log.error(error);
     })
   }

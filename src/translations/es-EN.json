@@ -1,6 +1,11 @@
 {
   "APP_NAME": "AMPA",
 
+  "alert_this-is-a-cool-alert": "Una alerta cool dice:",
+  "alert_added-to-favorites": "Pelicula agregada a favoritos",
+  "alert_removed-from-favorites": "Pelicula removida de favoritos",
+  "alert_this-feature-was-not-created-yet": "Esto aun no se creo.",
+
   "page-title_home": "Inicio",
   "page-title_login": "Login",
   "page-title_search": "Buscar",
@@ -29,6 +34,7 @@
   "shell_help": "Ayuda",
   "shell_home": "Inicio",
   "shell_about": "Sobre mi",
+  "shell_favorites": "Favoritos",
   "shell_logout": "Desloguearse",
   "shell_logged-as": "Logueado como",
   "shell_main-pages": "Principales paginas",

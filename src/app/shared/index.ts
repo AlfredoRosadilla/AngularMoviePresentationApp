@@ -1,5 +1,6 @@
 export * from './shared.module';
 export * from './components/shell/shell.component';
+export * from './components/alert/alert.component';
 export * from './components/loader/loader.component';
 export * from './components/header/header.component';
 export * from './components/footer/footer.component';

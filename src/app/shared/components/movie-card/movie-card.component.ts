@@ -6,7 +6,7 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import { IMovie, MoviesService, Logger } from '@app/services';
+import { IMovie, MoviesService, Logger, AlertService } from '@app/services';
 
 const log = new Logger('Login');
 
@@ -22,7 +22,7 @@ export class MovieCardComponent implements OnInit {
 
   public isLoading: boolean = true;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private alertService: AlertService) { }
 
   ngOnInit() {
     if (this.data) {
@@ -41,6 +41,7 @@ export class MovieCardComponent implements OnInit {
       this.data.imageData = image;
       this.isLoading = false;
     }, (error: any) => {
+      this.alertService.showAlert();
       log.error(error);
     })
   }

@@ -15,6 +15,16 @@
     margin: 0;
   }
 
+  mat-card {
+    position: relative;
+
+    button {
+      right: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
   section, figure {
     $max-width: 700px;
 
@@ -27,7 +37,7 @@
     h4 {
       margin-top: 35px;
 
-      &:first-child {
+      &:nth-child(2) {
         margin-top: 0;
       }
     }

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
-import { IMovie, MoviesService, Logger } from '@app/services';
+import { IMovie, MoviesService, Logger, AlertService } from '@app/services';
 
 const log = new Logger();
 
@@ -25,6 +25,7 @@ export class FooterComponent implements OnInit {
 
     private router: Router,
     private location: Location,
+    private alertService: AlertService,
     private moviesService: MoviesService,
     private activatedRoute: ActivatedRoute
 ) { }
@@ -74,7 +75,12 @@ export class FooterComponent implements OnInit {
       if (this.isCurrentView('detail')) {
         this.moviesService.setFavorite(this.movieId, !this.isFavorite).subscribe((isChanged: boolean) => {
           this.isFavorite = !this.isFavorite;
+          this.alertService.showAlert('success', {
+            text: this.isFavorite ? 'Added to favorites' : 'Removed from favorites',
+            translate: ['text']
+          })
         }, (error: any) => {
+          this.alertService.showAlert();
           log.error(error);
         })
       }

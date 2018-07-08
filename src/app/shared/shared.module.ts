@@ -6,6 +6,7 @@ import { MaterialModule } from '@app/material.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { AlertComponent } from './components/alert/alert.component';
 import { ShellComponent } from './components/shell/shell.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -26,6 +27,7 @@ import { MovieGridComponent } from './components/movie-grid/movie-grid.component
   ],
   declarations: [
     ShellComponent,
+    AlertComponent,
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
@@ -35,6 +37,7 @@ import { MovieGridComponent } from './components/movie-grid/movie-grid.component
   ],
   exports: [
     ShellComponent,
+    AlertComponent,
     LoaderComponent,
     MovieCardComponent,
     IconInputComponent,

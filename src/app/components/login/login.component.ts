@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService, AuthenticationService } from '@app/services';
+import { Logger, I18nService, AuthenticationService, AlertService } from '@app/services';
 
 const log = new Logger('Login');
 
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private i18nService: I18nService,
+    private alertService: AlertService,
     private authenticationService: AuthenticationService
   ) {
     this.createForm();
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
         }, (error: any) => {
           log.error(error);
           this.error = error;
+          this.alertService.showAlert();
         });
     }
   }

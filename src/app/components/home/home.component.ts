@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
-import { MoviesService, IMovie, Logger } from '@app/services';
+import { MoviesService, IMovie, Logger, AlertService } from '@app/services';
 
 const log = new Logger('Login');
 
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     public media: ObservableMedia,
+    private alertService: AlertService,
     private moviesService: MoviesService,
   ) { }
 
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
         this.lastMovie.imageData = image;
       }, (error: any) => {
         log.error(error);
+        this.alertService.showAlert();
       })
     })
   }

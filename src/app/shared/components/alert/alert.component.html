@@ -1,0 +1,10 @@
+<div class="alert print__hide" [ngClass]="classes">
+  <div class="alert__container" fxLayout="row" fxLayoutAlign="start center">
+    <mat-icon class="alert__main_icon" fxFlex="5">{{ icon }}</mat-icon>
+    <div fxFlex="90">
+      <p><span>{{ text }} &nbsp; </span></p>
+      <p><span>{{ solution }}</span></p>
+    </div>
+    <mat-icon class="g_pointer_cursor" fxFlex="5" (click)="close()">close</mat-icon>
+  </div>
+</div>

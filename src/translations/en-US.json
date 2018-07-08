@@ -1,6 +1,11 @@
 {
   "APP_NAME": "AMPA",
 
+  "alert_this-is-a-cool-alert": "Cool alert says:",
+  "alert_added-to-favorites": "Added to favorites",
+  "alert_removed-from-favorites": "Removed from favorites",
+  "alert_this-feature-was-not-created-yet": "This feature was not created yet.",
+
   "page-title_home": "Home",
   "page-title_login": "Login",
   "page-title_search": "Search",

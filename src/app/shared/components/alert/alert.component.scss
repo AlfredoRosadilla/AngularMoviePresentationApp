@@ -1,0 +1,85 @@
+@import 'src/app/shared/styles/index';
+
+:host {
+  height: 50px;
+  margin: 20px 12vw 0;
+  position: fixed;
+  width: 76vw;
+  z-index: 5;
+}
+
+.alert {
+  @mixin setAlert($color) {
+    border: 1px solid $color;
+    border-left: 6px solid $color;
+
+    mat-icon.alert__main_icon {
+      color: $color;
+    }
+  }
+
+  &.error .alert__container {
+    @include setAlert($color-07);
+  }
+
+  &.success .alert__container {
+    @include setAlert($color-08);
+  }
+
+  &.information .alert__container {
+    @include setAlert($color-06);
+  }
+
+  &.disapear {
+    overflow: hidden;
+
+    .alert__container {
+      transform: translateY(-70px);
+      transition: 0.4s;
+    }
+  }
+
+  &__container {
+    background-color: $white;
+    border-radius: 3px;
+    height: 100%;
+    width: 100%;
+
+    >div {
+      margin: 16px 0;
+
+      p {
+        color: $color-02;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+
+        &:first-child {
+          span {
+            color: black;
+            font-size: 14px;
+            font-weight: 900;
+          }
+        }
+
+        &:last-child {
+          span {
+            color: $color-02;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    &__button {
+      color: $color-06;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    mat-icon {
+      margin: 0 15px 0 20px;
+    }
+  }
+}

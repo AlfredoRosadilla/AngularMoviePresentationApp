@@ -19,8 +19,7 @@
       <app-icon-input
         type="text"
         icon="vpn_key"
-        [disabled]="isLoading"
-        (change)="search($event)"
+        (change)="oldPassword = $event"
         [placeholder]="'user-profile_old-password' | translate">
       </app-icon-input>
 
@@ -28,10 +27,13 @@
       <app-icon-input
         type="text"
         icon="vpn_key"
-        [disabled]="isLoading"
-        (change)="search($event)"
+        (change)="newPassword = $event"
         [placeholder]="'user-profile_new-password' | translate">
       </app-icon-input>
+
+      <button mat-raised-button color="primary" class="user_profile__change_password" (click)="changePassword()">
+        <span translate>user-profile_change-password</span>
+      </button>
     </section>
 
     <mat-divider></mat-divider>

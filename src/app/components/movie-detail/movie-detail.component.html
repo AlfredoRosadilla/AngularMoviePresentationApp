@@ -28,6 +28,16 @@
 
     <section fxFlex="100">
       <mat-card>
+        <button
+          fxHide.xs
+          mat-icon-button
+          (click)="setFavorite()"
+          [attr.disabled]="isLoading ? '' : null">
+          <mat-icon color="primary">
+            {{ isFavorite ? 'favorite' : 'favorite_border' }}
+          </mat-icon>
+        </button>
+
         <h4 translate>detail_name</h4>
         <p>{{ movie.name || '' }}</p>
         <mat-divider></mat-divider>

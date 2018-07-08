@@ -41,6 +41,18 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <app-header [sidenav]="sidenav"></app-header>
+      <app-alert
+        *ngIf="alertService.alert.render"
+        [type]="alertService.alert.type"
+        [text]="alertService.alert.text"
+        [classes]="alertService.alert.classes"
+        [solution]="alertService.alert.solution"
+        [hasButton]="alertService.alert.hasButton"
+        [textButton]="alertService.alert.textButton"
+        [hasLoadingBar]="alertService.alert.hasLoadingBar"
+        (clickButton)="alertService.clickButton()"
+        (closeAlert)="alertService.strictClose()">
+      </app-alert>
       <router-outlet></router-outlet>
       <app-footer></app-footer>
     </mat-sidenav-content>
