@@ -22,7 +22,7 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
-      this.id = +params['id'];
+      this.id = Number(params['id']);
 
       if (this.id) {
         this.moviesService.getById(this.id).subscribe((movie: IMovie) => {

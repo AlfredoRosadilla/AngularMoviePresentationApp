@@ -16,6 +16,7 @@ export interface IMovie {
   rate: string;
   length: string;
   genres: string[];
+  favorite: boolean;
   description: string;
 
   imageData?: any;
@@ -54,6 +55,20 @@ export class MoviesService {
    */
   getById(id: number): Observable<IMovie> {
     return of(movies.find((movie: IMovie) => movie.id === id)).pipe(delay(this.delayRequest()));
+  }
+
+  /**
+   * @param {!id} number The movie to update.
+   * @param {!boolean} isFavorite Value to apply.
+   *
+   * Apply favorite state to a movie instance.
+   *
+   * @return a boolean confirming the state changed.
+   */
+  setFavorite(id: number, isFavorite: boolean): Observable<boolean> {
+    movies.find((movie: IMovie) => movie.id === id).favorite = isFavorite;
+
+    return of(true);
   }
 
   /**

@@ -1,3 +1,4 @@
+import { filter } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
@@ -27,10 +28,10 @@ export class HeaderComponent implements OnInit {
       this.showSearch = false;
     }
 
-    this.router.events.subscribe(($event: any) => {
-      if ($event instanceof NavigationEnd) {
-        this.showSearch = Boolean($event.url !== '/search');
-      }
+    this.router.events.pipe(
+      filter((event: any) => event instanceof NavigationEnd)
+    ).subscribe(($event: any) => {
+      this.showSearch = Boolean($event.url !== '/search');
     });
   }
 

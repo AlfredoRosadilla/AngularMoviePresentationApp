@@ -13,8 +13,11 @@
       <button mat-icon-button routerLink="/home" routerLinkActive="active">
         <mat-icon>home</mat-icon>
       </button>
-      <button mat-icon-button (click)="executeAction('right-button')">
-        <mat-icon>{{ isCurrentView('detail') ? 'favorite' : 'notifications' }}</mat-icon>
+      <button
+        mat-icon-button
+        (click)="executeAction('right-button')"
+        [attr.disabled]="isCurrentView('detail') && isLoadingMovieData ? '' : null">
+        <mat-icon>{{ isCurrentView('detail') ? isFavorite ? 'favorite' : 'favorite_border' : 'notifications' }}</mat-icon>
       </button>
     </div>
   </ng-template>

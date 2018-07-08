@@ -1,7 +1,12 @@
+import { filter } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+
+import { IMovie, MoviesService, Logger } from '@app/services';
+
+const log = new Logger();
 
 @Component({
   selector: 'app-footer',
@@ -9,25 +14,47 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  private lastView: string = null;
   private currentView = '';
+  private movieId: number = null;
+  private lastView: string = null;
+  private isFavorite: boolean = false;
+  private isLoadingMovieData: boolean = false;
 
   constructor(
     public media: ObservableMedia,
 
     private router: Router,
-    private location: Location
+    private location: Location,
+    private moviesService: MoviesService,
+    private activatedRoute: ActivatedRoute
 ) { }
-
   ngOnInit() {
     this.currentView = this.router.url;
+    this.getFavorite();
 
-    this.router.events.subscribe(($event: any) => {
-      if ($event instanceof NavigationEnd) {
-        this.lastView = this.currentView;
-        this.currentView = $event.url;
-      }
+    this.router.events.pipe(
+      filter((event: any) => event instanceof NavigationEnd)
+    ).subscribe(($event: any) => {
+      this.lastView = this.currentView;
+      this.currentView = $event.url;
+
+      this.getFavorite();
     });
+  }
+
+  private getFavorite() {
+    const params = this.activatedRoute.firstChild.params;
+
+    if (this.isCurrentView('detail') && params && params['value']['id']) {
+      this.movieId = Number(params['value']['id']);
+
+      this.isLoadingMovieData = true;
+
+      this.moviesService.getById(this.movieId).subscribe((movie: IMovie) => {
+        this.isFavorite = movie.favorite;
+        this.isLoadingMovieData = false;
+      })
+    }
   }
 
   isCurrentView(view: string): boolean {
@@ -44,7 +71,13 @@ export class FooterComponent implements OnInit {
         this.router.navigate(['home']);
       }
     } else if (description === 'right-button') {
-
+      if (this.isCurrentView('detail')) {
+        this.moviesService.setFavorite(this.movieId, !this.isFavorite).subscribe((isChanged: boolean) => {
+          this.isFavorite = !this.isFavorite;
+        }, (error: any) => {
+          log.error(error);
+        })
+      }
     }
   }
 }
