@@ -1,12 +1,20 @@
 {
   "APP_NAME": "AMPA",
 
+  "page-title_home": "Inicio",
+  "page-title_login": "Login",
+  "page-title_search": "Buscar",
+  "page-title_favorites": "Favoritos",
+  "page-title_movie-detail": "Detalle de la pelicula",
+
   "header_help": "Ayuda",
   "header_home": "Inicio",
   "header_about": "Sobre mi",
   "header_logout": "Desloguearse",
   "header_logged-as": "Logueado como",
   "header_account": "Configuraciones",
+
+  "favorites_favorites-list": "LISTA DE FAVORITOS",
 
   "login_login": "Entrar",
   "login_remember": "Recuerdame",

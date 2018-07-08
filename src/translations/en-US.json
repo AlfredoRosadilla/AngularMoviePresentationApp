@@ -1,12 +1,20 @@
 {
   "APP_NAME": "AMPA",
 
+  "page-title_home": "Home",
+  "page-title_login": "Login",
+  "page-title_search": "Search",
+  "page-title_favorites": "Favorites",
+  "page-title_movie-detail": "Detail",
+
   "header_home": "Home",
   "header_help": "Help",
   "header_about": "About",
   "header_logout": "Logout",
   "header_logged-as": "Logged in as",
   "header_account": "Account Settings",
+
+  "favorites_favorites-list": "FAVORITES  LIST",
 
   "login_login": "Login",
   "login_username": "Username",

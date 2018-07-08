@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { Route, extract } from '@app/services';
-import { MovieDetailComponent } from './movie-detail.component';
+import { FavoritesComponent } from './favorites.component';
 
 const routes: Routes = [
   Route.withShell([
-    { path: 'detail/:id', component: MovieDetailComponent, data: { title: extract('Movie Detail') } }
+    { path: 'favorites', component: FavoritesComponent, data: { title: extract('Favorites') } }
   ])
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class MovieDetailRoutingModule { }
+export class FavoritesRoutingModule { }

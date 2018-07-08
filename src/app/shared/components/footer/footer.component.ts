@@ -64,7 +64,7 @@ export class FooterComponent implements OnInit {
   executeAction(description: string) {
     if (description === 'left-button') {
       if (this.isCurrentView('home')) {
-        // this.router.navigate(['favorite']);
+        this.router.navigate(['favorites']);
       } else if (this.lastView) {
         this.location.back();
       } else {

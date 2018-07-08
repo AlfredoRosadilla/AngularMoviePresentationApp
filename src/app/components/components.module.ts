@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { SearchModule } from './search/search.module';
+import { FavoritesModule } from './favorites/favorites.module';
 import { MovieDetailModule } from './movie-detail/movie-detail.module';
-import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   imports: [
@@ -14,13 +14,15 @@ import { FavoritesComponent } from './favorites/favorites.component';
     HomeModule,
     LoginModule,
     SearchModule,
+    FavoritesModule,
     MovieDetailModule,
   ],
-  declarations: [FavoritesComponent],
+  declarations: [],
   exports: [
     HomeModule,
     LoginModule,
     SearchModule,
+    FavoritesModule,
     MovieDetailModule,
   ]
 })

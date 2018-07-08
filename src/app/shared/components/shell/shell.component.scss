@@ -1,4 +1,5 @@
 @import 'src/theme/theme-variables';
+@import 'src/app/shared/styles/index';
 
 :host {
   display: flex;
@@ -33,11 +34,15 @@
 // See https://angular.io/guide/component-styles#deep
 :host ::ng-deep .mat-drawer-backdrop {
   top: 64px;
-  bottom: 64px;
   left: 0;
   right: 0;
+  bottom: 0;
   height: auto;
   position: absolute;
+
+  @include mobile() {
+    bottom: 64px;
+  }
 }
 
 @media ($mat-xsmall) {
@@ -45,6 +50,9 @@
   .mat-drawer-content,
   :host ::ng-deep .mat-drawer-backdrop {
     top: 56px;
-    bottom: 56px;
+
+    @include mobile() {
+      bottom: 56px;
+    }
   }
 }

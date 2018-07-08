@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService } from '@app/services';
+import { Logger, I18nService, AuthenticationService } from '@app/services';
 
 const log = new Logger('App');
 
@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
     private i18nService: I18nService,
     private activatedRoute: ActivatedRoute,
     private translateService: TranslateService,
+    private authenticationService: AuthenticationService,
   ) { }
 
   ngOnInit() {
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit {
     }
 
     log.debug('init');
-    
+
     // Setup translations
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
 
@@ -43,20 +44,28 @@ export class AppComponent implements OnInit {
       .pipe(
         map(() => {
           let route = this.activatedRoute;
+
           while (route.firstChild) {
             route = route.firstChild;
           }
+
           return route;
         }),
         filter(route => route.outlet === 'primary'),
         mergeMap(route => route.data)
       )
       .subscribe(event => {
-        const title = event['title'];
+        let title = event['title'];
+
         if (title) {
+          title = `page-title_${ title.toLowerCase().replace(new RegExp(' ', 'g'), '-') }`;
+
           this.titleService.setTitle(this.translateService.instant(title));
+        }
+
+        if (!this.authenticationService.isAuthenticated()) {
+          this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
         }
       });
   }
-
 }

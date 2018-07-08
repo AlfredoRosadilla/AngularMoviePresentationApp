@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 
 export interface Credentials {
   // Customize received credentials here
-  username: string;
   token: string;
+  username: string;
+  expiration_token: number;
 }
 
 export interface LoginContext {
@@ -15,17 +16,14 @@ export interface LoginContext {
 
 const credentialsKey = 'credentials';
 
-/**
- * Provides a base for authentication workflow.
- * The Credentials interface as well as login/logout methods should be replaced with proper implementation.
- */
 @Injectable()
 export class AuthenticationService {
-
   private _credentials: Credentials | null;
+  private minutesToExpirate: number = 30;
 
   constructor() {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
+
     if (savedCredentials) {
       this._credentials = JSON.parse(savedCredentials);
     }
@@ -39,10 +37,13 @@ export class AuthenticationService {
   login(context: LoginContext): Observable<Credentials> {
     // Replace by proper authentication call
     const data = {
+      token: '123456',
       username: context.username,
-      token: '123456'
+      expiration_token: Date.now()
     };
+
     this.setCredentials(data, context.remember);
+
     return of(data);
   }
 
@@ -51,8 +52,8 @@ export class AuthenticationService {
    * @return {Observable<boolean>} True if the user was logged out successfully.
    */
   logout(): Observable<boolean> {
-    // Customize credentials invalidation here
     this.setCredentials();
+
     return of(true);
   }
 
@@ -61,7 +62,7 @@ export class AuthenticationService {
    * @return {boolean} True if the user is authenticated.
    */
   isAuthenticated(): boolean {
-    return !!this.credentials;
+    return !this.isSessionExpired();
   }
 
   /**
@@ -70,6 +71,26 @@ export class AuthenticationService {
    */
   get credentials(): Credentials | null {
     return this._credentials;
+  }
+
+  /**
+   * Validate the expiration token.
+   * @return {boolean} exists and is valid the current expiration token.
+   */
+  private isSessionExpired(): boolean {
+    let expired: boolean = true;
+
+    if (this.credentials) {
+      const token = this.credentials.expiration_token;
+
+      if (((Date.now() - token) / (1000 * 60)) < this.minutesToExpirate) {
+        expired = false;
+      } else {
+        this.setCredentials();
+      }
+    }
+
+    return expired;
   }
 
   /**
@@ -84,11 +105,11 @@ export class AuthenticationService {
 
     if (credentials) {
       const storage = remember ? localStorage : sessionStorage;
+
       storage.setItem(credentialsKey, JSON.stringify(credentials));
     } else {
       sessionStorage.removeItem(credentialsKey);
       localStorage.removeItem(credentialsKey);
     }
   }
-
 }

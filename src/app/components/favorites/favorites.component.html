@@ -1,3 +1,8 @@
-<p>
-  favorites works!
-</p>
+<div class="favorites" fxFlex="100" fxLayoutAlign="center center" fxLayout="column">
+  <h2 fxFlex="100" translate>favorites_favorites-list</h2>
+  <app-movie-grid
+    [data]="movies"
+    [isLoading]="isLoading"
+    (select)="movieSelected($event)">
+  </app-movie-grid>
+</div>
