@@ -1,0 +1,47 @@
+@import 'src/app/shared/styles/index';
+
+.user_profile {
+  min-height: calc(100% - 66px);
+
+  &__username {
+    color: $color-05;
+  }
+
+  &__unmodified_user_data {
+    margin-top: 50px;
+  }
+
+  h2 {
+    margin: 0;
+
+    @include mobile() {
+      font-size: 30px;
+    }
+  }
+
+  mat-card {
+    max-width: 700px;
+    width: 100%;
+  }
+
+  mat-form-field {
+    @include mobile() {
+      width: 100%;
+    }
+  }
+
+  section {
+    margin-bottom: 32px;
+    margin-top: 60px;
+
+    &:last-child {
+      margin-bottom: 0;
+
+      button {
+        height: 40px;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+    }
+  }
+}

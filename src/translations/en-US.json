@@ -6,11 +6,13 @@
   "page-title_search": "Search",
   "page-title_favorites": "Favorites",
   "page-title_movie-detail": "Detail",
+  "page-title_user_profile": "Profile Configurations",
 
   "header_home": "Home",
   "header_help": "Help",
   "header_about": "About",
   "header_logout": "Logout",
+  "header_favorites": "Favorites",
   "header_logged-as": "Logged in as",
   "header_account": "Account Settings",
 
@@ -28,6 +30,7 @@
   "shell_help": "Help",
   "shell_about": "About",
   "shell_logout": "Logout",
+  "shell_favorites": "Favorites",
   "shell_main-pages": "Main pages",
   "shell_logged-as": "Logged in as",
   "shell_account": "Account Settings",
@@ -40,6 +43,16 @@
   "detail_length": "Duration",
   "detail_description": "Description",
   "detail_video-not-supported": "Your browser does not support the video tag.",
+
+  "user-profile_themes": "Themes",
+  "user-profile_username": "Username:",
+  "user-profile_select-theme": "Theme",
+  "user-profile_select-language": "Language",
+  "user-profile_new-password": "New password",
+  "user-profile_title": "Account Configuration",
+  "user-profile_old-password": "Current password",
+  "user-profile_change-password": "Change password",
+  "user-profile_app-configurations": "APP CONFIGURATIONS",
 
   "footer_text": "Alfredo Sebastian Rosadilla Ribeiro"
 }

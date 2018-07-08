@@ -1,4 +1,4 @@
-<div fxFlex>
+<div fxFlex [class]="themeService.currentTheme">
   <mat-sidenav-container fxFill>
     <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border">
       <nav>
@@ -14,6 +14,9 @@
           </a>
           <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="sidenav.close()">
             <span>&emsp;&emsp;</span><span translate>shell_home</span>
+          </a>
+          <a mat-list-item routerLink="/favorites" routerLinkActive="active" (click)="sidenav.close()">
+            <span>&emsp;&emsp;</span><span translate>shell_favorites</span>
           </a>
           <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="sidenav.close()">
             <span>&emsp;&emsp;</span><span translate>shell_about</span>

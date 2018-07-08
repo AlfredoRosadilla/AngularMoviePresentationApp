@@ -6,6 +6,7 @@ import { LoginModule } from './login/login.module';
 import { SearchModule } from './search/search.module';
 import { FavoritesModule } from './favorites/favorites.module';
 import { MovieDetailModule } from './movie-detail/movie-detail.module';
+import { UserProfileModule } from './user-profile/user-profile.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { MovieDetailModule } from './movie-detail/movie-detail.module';
     SearchModule,
     FavoritesModule,
     MovieDetailModule,
+    UserProfileModule,
   ],
   declarations: [],
   exports: [
@@ -24,6 +26,7 @@ import { MovieDetailModule } from './movie-detail/movie-detail.module';
     SearchModule,
     FavoritesModule,
     MovieDetailModule,
+    UserProfileModule,
   ]
 })
 export class ComponentsModule { }

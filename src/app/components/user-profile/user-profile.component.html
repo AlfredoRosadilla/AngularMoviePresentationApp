@@ -1,0 +1,60 @@
+<div class="user_profile" fxFlex="100" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-title>
+      <h2 translate>user-profile_title</h2>
+    </mat-card-title>
+
+    <mat-divider></mat-divider>
+
+    <section class="user_profile__unmodified_user_data">
+      <h4><span translate>user-profile_username</span> &nbsp; <span class="user_profile__username">{{ username }}</span></h4>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <section>
+      <h4 translate>user-profile_change-password</h4>
+
+      <h5 translate>user-profile_old-password</h5>
+      <app-icon-input
+        type="text"
+        icon="vpn_key"
+        [disabled]="isLoading"
+        (change)="search($event)"
+        [placeholder]="'user-profile_old-password' | translate">
+      </app-icon-input>
+
+      <h5 translate>user-profile_new-password</h5>
+      <app-icon-input
+        type="text"
+        icon="vpn_key"
+        [disabled]="isLoading"
+        (change)="search($event)"
+        [placeholder]="'user-profile_new-password' | translate">
+      </app-icon-input>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <section>
+      <h3 translate>user-profile_app-configurations</h3>
+
+      <p translate>user-profile_select-language</p>
+      <button mat-raised-button color="primary" (click)="setLanguage()">
+        {{ currentLanguage }}
+      </button>
+
+      <p translate>user-profile_select-theme</p>
+      <mat-form-field>
+        <mat-select
+          [value]="currentTheme"
+          (selectionChange)="setTheme($event)"
+          [placeholder]="'user-profile_themes' | translate">
+          <mat-option *ngFor="let theme of themeList" [value]="theme">
+            {{ theme }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </section>
+  </mat-card>
+</div>

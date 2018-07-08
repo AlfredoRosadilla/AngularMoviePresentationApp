@@ -6,11 +6,13 @@
   "page-title_search": "Buscar",
   "page-title_favorites": "Favoritos",
   "page-title_movie-detail": "Detalle de la pelicula",
+  "page-title_user_profile": "Configuracion de perfil",
 
   "header_help": "Ayuda",
   "header_home": "Inicio",
   "header_about": "Sobre mi",
   "header_logout": "Desloguearse",
+  "header_favorites": "Favorites",
   "header_logged-as": "Logueado como",
   "header_account": "Configuraciones",
 
@@ -40,6 +42,16 @@
   "detail_length": "Duracion",
   "detail_description": "Descripcion",
   "detail_video-not-supported": "Tu navegador no soporta la tag de video.",
+
+  "user-profile_themes": "Tema",
+  "user-profile_select-theme": "Tema",
+  "user-profile_select-language": "Lenguaje",
+  "user-profile_username": "Nombre de usuario:",
+  "user-profile_new-password": "Nueva contraseña",
+  "user-profile_old-password": "Contraseña actual",
+  "user-profile_title": "Configuraciones de cuenta",
+  "user-profile_change-password": "Cambiar contraseña",
+  "user-profile_app-configurations": "CONFIGURACIONES DE LA APLICACION",
 
   "footer_text": "Alfredo Sebastian Rosadilla Ribeiro"
 }

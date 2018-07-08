@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
-import { AuthenticationService, I18nService } from '@app/services';
+import { AuthenticationService } from '@app/services';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: Title,
-    private i18nService: I18nService,
     private authenticationService: AuthenticationService,
   ) { }
 
@@ -35,20 +34,8 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  setLanguage(language: string) {
-    this.i18nService.language = language;
-  }
-
   logout() {
     this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
-  }
-
-  get currentLanguage(): string {
-    return this.i18nService.language;
-  }
-
-  get languages(): string[] {
-    return this.i18nService.supportedLanguages;
   }
 
   get username(): string {
