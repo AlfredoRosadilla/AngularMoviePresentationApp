@@ -18,34 +18,13 @@
     }
   }
 
-  &.error .alert__container {
-    @include setAlert($color-07);
-  }
-
-  &.success .alert__container {
-    @include setAlert($color-08);
-  }
-
-  &.information .alert__container {
-    @include setAlert($color-06);
-  }
-
-  &.disapear {
-    overflow: hidden;
-
-    .alert__container {
-      transform: translateY(-70px);
-      transition: 0.4s;
-    }
-  }
-
   &__container {
     background-color: $white;
     border-radius: 3px;
     height: 100%;
     width: 100%;
 
-    >div {
+    > div {
       margin: 16px 0;
 
       p {
@@ -80,6 +59,27 @@
 
     mat-icon {
       margin: 0 15px 0 20px;
+    }
+  }
+
+  &.error .alert__container {
+    @include setAlert($color-07);
+  }
+
+  &.success .alert__container {
+    @include setAlert($color-08);
+  }
+
+  &.information .alert__container {
+    @include setAlert($color-06);
+  }
+
+  &.disapear {
+    overflow: hidden;
+
+    .alert__container {
+      transform: translateY(-70px);
+      transition: 0.4s;
     }
   }
 }

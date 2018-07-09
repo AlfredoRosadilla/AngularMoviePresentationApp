@@ -20,7 +20,7 @@ export class MovieCardComponent implements OnInit {
 
   @Output() select ?= new EventEmitter<IMovie>();
 
-  public isLoading: boolean = true;
+  public isLoading = true;
 
   constructor(private moviesService: MoviesService, private alertService: AlertService) { }
 
@@ -43,6 +43,6 @@ export class MovieCardComponent implements OnInit {
     }, (error: any) => {
       this.alertService.showAlert();
       log.error(error);
-    })
+    });
   }
 }

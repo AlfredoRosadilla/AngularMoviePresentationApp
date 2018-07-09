@@ -36,8 +36,8 @@ export class HomeComponent implements OnInit {
       }, (error: any) => {
         log.error(error);
         this.alertService.showAlert();
-      })
-    })
+      });
+    });
   }
 
   movieSelected(movie: IMovie) {

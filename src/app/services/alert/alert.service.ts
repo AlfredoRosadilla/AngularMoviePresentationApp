@@ -3,10 +3,9 @@ import { Observable, forkJoin } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 
 /**
-* AlertService will be handle by promises instead of Observers
-* this is just for show up knowledged.
-**/
-
+ * AlertService will be handle by promises instead of Observers
+ * this is just for show up knowledged.
+ */
 @Injectable()
 export class AlertService {
   public alert: any = {};

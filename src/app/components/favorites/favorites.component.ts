@@ -10,7 +10,7 @@ import { IMovie, MoviesService } from '@app/services';
 })
 export class FavoritesComponent implements OnInit {
   public movies: IMovie[] = null;
-  public isLoading: boolean = true;
+  public isLoading = true;
 
   constructor(
     private router: Router,
@@ -21,7 +21,7 @@ export class FavoritesComponent implements OnInit {
     this.moviesService.getAll().subscribe((movies: IMovie[]) => {
       this.movies = movies.filter((movie: IMovie) => Boolean(movie.favorite));
       this.isLoading = false;
-    })
+    });
   }
 
   movieSelected(movie: IMovie) {

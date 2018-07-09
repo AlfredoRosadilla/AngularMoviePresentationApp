@@ -13,8 +13,8 @@ const log = new Logger('Login');
 export class MovieDetailComponent implements OnInit {
   private id: number = null;
   public movie: IMovie = null;
-  public isLoading: boolean = true;
-  public isFavorite: boolean = true;
+  public isLoading = true;
+  public isFavorite = true;
 
   constructor(
     private router: Router,
@@ -42,7 +42,7 @@ export class MovieDetailComponent implements OnInit {
               translate: ['text', 'solution']
             });
             log.error(error);
-          })
+          });
         }, (error: any) => {
           log.error(error);
           this.alertService.showAlert('error', {
@@ -51,10 +51,10 @@ export class MovieDetailComponent implements OnInit {
             translate: ['text', 'solution']
           }).then(() => {
             this.router.navigate(['home']);
-          })
-        })
+          });
+        });
       }
-    })
+    });
   }
 
   setFavorite() {
@@ -63,6 +63,6 @@ export class MovieDetailComponent implements OnInit {
     this.alertService.showAlert('success', {
       text: this.isFavorite ? 'Added to favorites' : 'Removed from favorites',
       translate: ['text']
-    })
+    });
   }
 }

@@ -107,7 +107,7 @@ export class MoviesService {
         observer.complete();
       } else {
         const imageUrl = `${environment.serverUrl}assets/images/${movie.img}`;
-        const request= this.http.get(imageUrl, { responseType: 'blob' });
+        const request = this.http.get(imageUrl, { responseType: 'blob' });
 
         request.pipe(delay(this.delayRequest()));
 
@@ -123,13 +123,13 @@ export class MoviesService {
             }, false);
 
             reader.readAsDataURL(imageData);
-          } catch(error) {
+          } catch (error) {
             observer.error(error);
           }
         }, (error: any) => {
           observer.error(error);
         });
       }
-    })
+    });
   }
 }

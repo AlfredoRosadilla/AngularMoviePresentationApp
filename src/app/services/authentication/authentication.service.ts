@@ -19,7 +19,7 @@ const credentialsKey = 'credentials';
 @Injectable()
 export class AuthenticationService {
   private _credentials: Credentials | null;
-  private minutesToExpirate: number = 30;
+  private minutesToExpirate = 30;
 
   constructor() {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
@@ -78,7 +78,7 @@ export class AuthenticationService {
    * @return {boolean} exists and is valid the current expiration token.
    */
   private isSessionExpired(): boolean {
-    let expired: boolean = true;
+    let expired = true;
 
     if (this.credentials) {
       const token = this.credentials.expiration_token;

@@ -3,6 +3,7 @@ import {
   Output,
   OnInit,
   Component,
+  OnChanges,
   EventEmitter
 } from '@angular/core';
 import { filter } from 'rxjs/operators';
@@ -15,13 +16,13 @@ import { IMovie } from '@app/services';
   templateUrl: './movie-grid.component.html',
   styleUrls: ['./movie-grid.component.scss']
 })
-export class MovieGridComponent implements OnInit {
+export class MovieGridComponent implements OnInit, OnChanges {
   @Input('data') movies: IMovie[] = null;
-  @Input('isLoading') isLoading: boolean = true;
+  @Input('isLoading') isLoading = true;
 
   @Output() select ?= new EventEmitter<IMovie>();
 
-  public gridDistribution: number = 25;
+  public gridDistribution = 25;
 
   constructor(private media: ObservableMedia) {}
 
@@ -38,7 +39,7 @@ export class MovieGridComponent implements OnInit {
 
   ngOnChanges(changes: any) {
     if (changes.movies && changes.movies.currentValue instanceof Array) {
-      switch(changes.movies.currentValue.length) {
+      switch (changes.movies.currentValue.length) {
         case 1:
           this.gridDistribution = 100;
           break;

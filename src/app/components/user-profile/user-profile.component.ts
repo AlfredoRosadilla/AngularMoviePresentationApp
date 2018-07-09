@@ -13,9 +13,9 @@ import {
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  private oldPassword = '';
-  private newPassword = '';
-  public themeSelected: string = '';
+  public oldPassword = '';
+  public newPassword = '';
+  public themeSelected = '';
 
   constructor(
     private i18nService: I18nService,

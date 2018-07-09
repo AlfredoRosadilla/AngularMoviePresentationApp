@@ -13,84 +13,86 @@
 }
 
 @mixin transform($params, $origin: 50% 50%, $persp: 300px) {
-  -o-transform:				$params;
-  transform:					$params;
-  -moz-transform:				$params;
-  -ms-transform:				$params;
-  -webkit-transform:			$params;
-
-  transform-origin:			$origin;
-  -o-transform-origin:		$origin;
-  -ms-transform-origin:		$origin;
-  -moz-transform-origin:		$origin;
-  -webkit-transform-origin:	$origin;
-
-  perspective:				$persp;
-  -o-perspective:				$persp;
-  -moz-perspective:			$persp;
-  -ms-perspective:			$persp;
-  -webkit-perspective:		$persp;
+  transform: $params;
+  perspective: $persp;
+  -o-transform: $params;
+  -o-perspective: $persp;
+  -ms-transform: $params;
+  -moz-transform: $params;
+  -ms-perspective: $persp;
+  -moz-perspective: $persp;
+  transform-origin: $origin;
+  -webkit-transform: $params;
+  -webkit-perspective: $persp;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
 }
 
 @mixin transition($what: all, $length: 1s, $easing: ease-in-out) {
-  -moz-transition:    $what $length $easing;
-  -o-transition:      $what $length $easing;
+  transition: $what $length $easing;
+  -o-transition: $what $length $easing;
+  -ms-transition: $what $length $easing;
+  -moz-transition: $what $length $easing;
   -webkit-transition: $what $length $easing;
-  -ms-transition:     $what $length $easing;
-  transition:         $what $length $easing;
-
 }
 
-@mixin animation($name, $duration: 1s, $easing: ease-out, $delay: 0, $iteration: infinite, $direction: normal, $fill: none){
-  animation:         $name $duration $easing $delay $iteration $direction $fill;
-  -o-animation:       $name $duration $easing $delay $iteration $direction $fill;
-  -webkit-animation:  $name $duration $easing $delay $iteration $direction $fill;
-  -moz-animation:     $name $duration $easing $delay $iteration $direction $fill;
+@mixin animation($name, $duration: 1s, $easing: ease-out, $delay: 0, $iteration: infinite, $direction: normal, $fill: none) {
+  animation: $name $duration $easing $delay $iteration $direction $fill;
+  -o-animation: $name $duration $easing $delay $iteration $direction $fill;
+  -moz-animation: $name $duration $easing $delay $iteration $direction $fill;
+  -webkit-animation: $name $duration $easing $delay $iteration $direction $fill;
 }
 
-@mixin slideDownKeyFrame( $animationName, $min, $max )
-{
+@mixin slideDownKeyFrame($animationName, $min, $max) {
   @-webkit-keyframes #{$animationName} {
     0% {
       min-height: $min;
     }
+
     100% {
       min-height: $max;
     }
   }
+
   @-moz-keyframes #{$animationName} {
     0% {
       min-height: $min;
     }
+
     100% {
       min-height: $max;
     }
   }
+
   @-o-keyframes #{$animationName} {
     0% {
       min-height: $min;
     }
+
     100% {
       min-height: $max;
     }
   }
+
   @keyframes #{$animationName} {
     0% {
       min-height: $min;
     }
+
     100% {
       min-height: $max;
     }
   }
 }
-
 
 // --------------------------------------------------
 // Flexbox SASS mixins
 // The spec: http://www.w3.org/TR/css3-flexbox
 // --------------------------------------------------
-
 // Flexbox display
+
 @mixin flexbox() {
   display: flex;
   display: -moz-box;
@@ -222,7 +224,6 @@
   -moz-align-self: $align;
   -webkit-align-self: $align;
 }
-
 
 // Placeholder component mixin
 @mixin optional-at-root($sel) {

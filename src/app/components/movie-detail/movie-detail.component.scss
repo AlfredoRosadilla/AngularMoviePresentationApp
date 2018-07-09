@@ -11,10 +11,6 @@
     padding: 0;
   }
 
-  figure:nth-child(2) {
-    margin: 0;
-  }
-
   mat-card {
     position: relative;
 
@@ -25,7 +21,8 @@
     }
   }
 
-  section, figure {
+  section,
+  figure {
     $max-width: 700px;
 
     max-width: $max-width;
@@ -41,5 +38,9 @@
         margin-top: 0;
       }
     }
+  }
+
+  figure:nth-child(2) {
+    margin: 0;
   }
 }

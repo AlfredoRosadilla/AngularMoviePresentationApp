@@ -19,7 +19,23 @@ describe('FavoritesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('Base tests', () => {
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+
+    it('should have a defined component', () => {
+        expect(component).toBeDefined();
+    });
+  });
+
+  describe('Properties tests', () => {
+    it('should have a property movies', () => {
+      expect(component.movies).toBeDefined();
+    });
+
+    it('should have a property isLoading', () => {
+      expect(component.isLoading).toBeDefined();
+    });
   });
 });

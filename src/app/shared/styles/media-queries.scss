@@ -70,13 +70,13 @@ $desktop-min-width: 960px;
 
 @mixin breakpoint($type, $fallback:false, $parent:true) {
   @if $type == 'mobile-tablet' {
-    @media (max-width: $desktop-min-width - 1){
+    @media (max-width: $desktop-min-width - 1) {
       @content;
     }
   }
 
   @if $type == 'tablet-desktop' {
-    @media (min-width: $tablet-min-width){
+    @media (min-width: $tablet-min-width) {
       @content;
     }
   }
@@ -93,7 +93,7 @@ $desktop-min-width: 960px;
     }
   }
 
-  @if $type == 'desktop'{
+  @if $type == 'desktop' {
     @media (min-width: #{$desktop-min-width - 1}) and (max-width: #{$desktop-min-width-max}) {
       @content;
     }
@@ -104,7 +104,9 @@ $desktop-min-width: 960px;
       .#{$fallback} & {
         @content;
       }
-    } @else {
+    }
+
+    @else {
       .#{$fallback} {
         @content;
       }

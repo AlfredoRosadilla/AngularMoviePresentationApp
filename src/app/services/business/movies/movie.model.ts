@@ -10,4 +10,4 @@ export enum GenreType {
 	Thriller = 'thriller',
 	Adventure = 'adventure',
 	Biography = 'biography',
-};
+}

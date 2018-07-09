@@ -17,8 +17,8 @@ export class FooterComponent implements OnInit {
   private currentView = '';
   private movieId: number = null;
   private lastView: string = null;
-  private isFavorite: boolean = false;
-  private isLoadingMovieData: boolean = false;
+  private isFavorite = false;
+  private isLoadingMovieData = false;
 
   constructor(
     public media: ObservableMedia,
@@ -54,7 +54,7 @@ export class FooterComponent implements OnInit {
       this.moviesService.getById(this.movieId).subscribe((movie: IMovie) => {
         this.isFavorite = movie.favorite;
         this.isLoadingMovieData = false;
-      })
+      });
     }
   }
 
@@ -78,11 +78,11 @@ export class FooterComponent implements OnInit {
           this.alertService.showAlert('success', {
             text: this.isFavorite ? 'Added to favorites' : 'Removed from favorites',
             translate: ['text']
-          })
+          });
         }, (error: any) => {
           this.alertService.showAlert();
           log.error(error);
-        })
+        });
       }
     }
   }

@@ -14,9 +14,9 @@ const log = new Logger('Login');
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public error: string = '';
+  public error = '';
   public loginForm: FormGroup;
-  public isLoading: boolean = false;
+  public isLoading = false;
 
   constructor(
     private router: Router,
