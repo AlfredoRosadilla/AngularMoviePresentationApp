@@ -1,8 +1,8 @@
 import { filter } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 
 import { IMovie, MoviesService, Logger, AlertService } from '@app/services';
 
@@ -15,9 +15,9 @@ const log = new Logger();
 })
 export class FooterComponent implements OnInit {
   private currentView = '';
+  private isFavorite = false;
   private movieId: number = null;
   private lastView: string = null;
-  private isFavorite = false;
   private isLoadingMovieData = false;
 
   constructor(

@@ -1,5 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { SharedModule } from '@app/shared';
+import { ServicesModule } from '@app/services';
+import { ComponentsModule } from '@app/components/components.module';
+
 import { UserProfileComponent } from './user-profile.component';
 
 describe('UserProfileComponent', () => {
@@ -8,7 +18,21 @@ describe('UserProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserProfileComponent ]
+      imports: [
+        FormsModule,
+        BrowserModule,
+        HttpClientModule,
+
+        ServicesModule,
+        SharedModule,
+        ComponentsModule,
+
+        BrowserAnimationsModule,
+
+        TranslateModule.forRoot(),
+      ],
+      declarations: [],
+      providers: []
     })
     .compileComponents();
   }));

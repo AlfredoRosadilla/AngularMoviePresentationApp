@@ -1,5 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { Router, ActivatedRoute} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { SharedModule } from '@app/shared';
+import { ServicesModule } from '@app/services';
+
 import { AlertComponent } from './alert.component';
 
 describe('AlertComponent', () => {
@@ -8,7 +18,19 @@ describe('AlertComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlertComponent ]
+      imports: [
+        FormsModule,
+        BrowserModule,
+        HttpClientModule,
+
+        ServicesModule,
+        SharedModule,
+
+        BrowserAnimationsModule,
+
+        TranslateModule.forRoot(),
+      ],
+      declarations: []
     })
     .compileComponents();
   }));

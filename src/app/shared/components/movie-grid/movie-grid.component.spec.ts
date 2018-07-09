@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovieGridComponent } from './movie-grid.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { SharedModule, MovieGridComponent } from '@app/shared';
 
 describe('MovieGridComponent', () => {
   let component: MovieGridComponent;
@@ -8,7 +10,12 @@ describe('MovieGridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieGridComponent ]
+      imports: [
+        SharedModule,
+        FlexLayoutModule
+      ],
+      declarations: [],
+      providers: []
     })
     .compileComponents();
   }));

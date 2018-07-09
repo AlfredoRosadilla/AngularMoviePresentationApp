@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+import { MediaChange, ObservableMedia, FlexLayoutModule } from '@angular/flex-layout';
 
 import { MoviesService, IMovie, Logger, AlertService } from '@app/services';
 

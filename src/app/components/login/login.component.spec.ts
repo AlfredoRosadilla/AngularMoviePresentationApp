@@ -1,13 +1,18 @@
-import { ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
-import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterTestingModule } from '@angular/router/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from '@app/shared';
+import { ServicesModule } from '@app/services';
+import { ComponentsModule } from '@app/components/components.module';
+
 import { LoginComponent } from './login.component';
-import { MaterialModule } from '@app/material.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -16,15 +21,22 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        SharedModule,
-        MaterialModule,
+        FormsModule,
+        BrowserModule,
+        HttpClientModule,
         FlexLayoutModule,
         RouterTestingModule,
-        ReactiveFormsModule,
+
+        ServicesModule,
+        SharedModule,
+        ComponentsModule,
+
         BrowserAnimationsModule,
+
         TranslateModule.forRoot(),
       ],
-      declarations: [LoginComponent]
+      declarations: [],
+      providers: []
     })
     .compileComponents();
   }));

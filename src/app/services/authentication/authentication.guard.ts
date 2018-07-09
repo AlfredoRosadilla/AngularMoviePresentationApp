@@ -15,12 +15,15 @@ export class AuthenticationGuard implements CanActivate {
   ) { }
 
   canActivate(): boolean {
+    let iCan = false;
+
     if (this.authenticationService.isAuthenticated()) {
-      return true;
+      iCan = true;
+    } else {
+      log.debug('Not authenticated, redirecting...');
+      this.router.navigate(['/login'], { replaceUrl: true });
     }
 
-    log.debug('Not authenticated, redirecting...');
-    this.router.navigate(['/login'], { replaceUrl: true });
-    return false;
+    return iCan;
   }
 }

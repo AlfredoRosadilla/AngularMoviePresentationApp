@@ -15,33 +15,52 @@ describe('AuthenticationGuard', () => {
     TestBed.configureTestingModule({
       providers: [
         AuthenticationGuard,
+        AuthenticationService,
         { provide: Router, useValue: mockRouter },
       ]
     });
   });
 
-  beforeEach(inject([
-    AuthenticationGuard,
-    AuthenticationService
-  ], (_authenticationGuard: AuthenticationGuard) => {
-
+  beforeEach(inject([AuthenticationGuard], (_authenticationGuard: AuthenticationGuard) => {
     authenticationGuard = _authenticationGuard;
   }));
 
-  it('should have a canActivate method', () => {
-    expect(typeof authenticationGuard.canActivate).toBe('function');
-  });
+  describe('canActive method', () => {
+    let authenticationService: AuthenticationService;
 
-  it('should return true if user is authenticated', () => {
-    expect(authenticationGuard.canActivate()).toBe(true);
-  });
+    beforeEach(inject([AuthenticationService], (_authenticationService: AuthenticationService) => {
+      authenticationService = _authenticationService;
+    }));
 
-  it('should return false and redirect to login if user is not authenticated', () => {
-    // Act
-    const result = authenticationGuard.canActivate();
+    it('should have a canActivate method', () => {
+      expect(typeof authenticationGuard.canActivate).toBe('function');
+    });
 
-    // Assert
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {replaceUrl: true});
-    expect(result).toBe(false);
+    it('should call isAuthenticated AuthenticationService method', () => {
+      spyOn(authenticationService, 'isAuthenticated');
+
+      authenticationGuard.canActivate();
+
+      expect(authenticationService.isAuthenticated).toHaveBeenCalled();
+    });
+
+    it('should return true if user is not authenticated', () => {
+      spyOn(authenticationService, 'isAuthenticated').and.returnValue(false);
+
+      expect(authenticationGuard.canActivate()).toBe(false);
+    });
+
+    it('should return true if user is authenticated', () => {
+      spyOn(authenticationService, 'isAuthenticated').and.returnValue(true);
+
+      expect(authenticationGuard.canActivate()).toBe(true);
+    });
+
+    it('should return false and redirect to login if user is not authenticated', () => {
+      spyOn(authenticationService, 'isAuthenticated').and.returnValue(false);
+
+      expect(authenticationGuard.canActivate()).toBe(false);
+      expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {replaceUrl: true});
+    });
   });
 });
