@@ -16,7 +16,10 @@ describe('AuthenticationGuard', () => {
       providers: [
         AuthenticationGuard,
         AuthenticationService,
-        { provide: Router, useValue: mockRouter },
+        {
+          provide: Router,
+          useValue: mockRouter
+        }
       ]
     });
   });

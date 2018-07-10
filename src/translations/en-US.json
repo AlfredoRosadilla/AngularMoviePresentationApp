@@ -4,6 +4,7 @@
   "alert_this-is-a-cool-alert": "Cool alert says:",
   "alert_added-to-favorites": "Added to favorites",
   "alert_removed-from-favorites": "Removed from favorites",
+  "alert_you-have-not-notifications": "You have not notifications.",
   "alert_this-feature-was-not-created-yet": "This feature was not created yet.",
 
   "page-title_home": "Home",
@@ -11,7 +12,7 @@
   "page-title_search": "Search",
   "page-title_favorites": "Favorites",
   "page-title_movie-detail": "Detail",
-  "page-title_user_profile": "Profile Configurations",
+  "page-title_user-profile": "Profile Configurations",
 
   "header_home": "Home",
   "header_help": "Help",
@@ -26,7 +27,7 @@
   "login_login": "Login",
   "login_username": "Username",
   "login_password": "Password",
-  "login_rember": "Remember me",
+  "login_remember": "Remember me",
   "login_username-required": "Username is required",
   "login_password-required": "Password is required",
   "login_user-or-passwor-incorrect": "Username or password incorrect.",

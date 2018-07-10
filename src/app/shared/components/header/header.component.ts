@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
-import { AuthenticationService } from '@app/services';
+import { AuthenticationService, AlertService } from '@app/services';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: Title,
+    private alertService: AlertService,
     private authenticationService: AuthenticationService,
   ) { }
 
@@ -36,6 +37,13 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+  }
+
+  showNotifications() {
+    this.alertService.showAlert('information', {
+      text: 'You have not notifications',
+      translate: ['text']
+    });
   }
 
   get username(): string {

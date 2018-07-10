@@ -1,8 +1,8 @@
 @import 'src/app/shared/styles/index';
 
 .home {
-  min-height: 100%;
   padding: 24px;
+  min-height: calc(100% - 64px);
 
   &__main_movie {
     height: 36vh;

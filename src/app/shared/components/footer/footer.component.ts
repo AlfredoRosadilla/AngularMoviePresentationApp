@@ -83,6 +83,11 @@ export class FooterComponent implements OnInit {
           this.alertService.showAlert();
           log.error(error);
         });
+      } else {
+        this.alertService.showAlert('information', {
+          text: 'You have not notifications',
+          translate: ['text']
+        });
       }
     }
   }

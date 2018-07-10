@@ -2,7 +2,7 @@
   <section fxFlex="100">
     <div class="home__main_movie" fxLayoutAlign="center center" (click)="movieSelected(lastMovie)">
       <ng-template [ngIf]="!lastMovie || !lastMovie.imageData" [ngIfElse]="coverPageImage">
-        <app-loader [isLoading]="true" size="1.5"></app-loader>
+        <app-loader class="home__spinner" [isLoading]="true" size="1.5"></app-loader>
       </ng-template>
 
       <ng-template #coverPageImage>

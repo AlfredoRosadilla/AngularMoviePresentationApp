@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService, AuthenticationService, AlertService } from '@app/services';
+import { Logger, I18nService, AuthenticationService, AlertService, ThemeService } from '@app/services';
 
 const log = new Logger('Login');
 
@@ -22,13 +22,16 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private i18nService: I18nService,
+    private themeService: ThemeService,
     private alertService: AlertService,
     private authenticationService: AuthenticationService
   ) {
     this.createForm();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.themeService.setTheme(this.themeService.themeList[0]);
+  }
 
   login() {
     if (this.loginForm.valid) {

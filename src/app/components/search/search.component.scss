@@ -2,6 +2,7 @@
 
 .search {
   padding-top: 12px;
+  min-height: calc(100% - 64px);
 
   &__search_section {
     padding: 0 0 12px 12px;

@@ -5,13 +5,14 @@
   "alert_added-to-favorites": "Pelicula agregada a favoritos",
   "alert_removed-from-favorites": "Pelicula removida de favoritos",
   "alert_this-feature-was-not-created-yet": "Esto aun no se creo.",
+  "alert_you-have-not-notifications": "No tienes notifications nuevas.",
 
   "page-title_home": "Inicio",
   "page-title_login": "Login",
   "page-title_search": "Buscar",
   "page-title_favorites": "Favoritos",
   "page-title_movie-detail": "Detalle de la pelicula",
-  "page-title_user_profile": "Configuracion de perfil",
+  "page-title_user-profile": "Configuracion de perfil",
 
   "header_help": "Ayuda",
   "header_home": "Inicio",

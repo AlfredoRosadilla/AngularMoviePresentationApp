@@ -23,7 +23,7 @@
   <button *ngIf="showSearch" mat-icon-button routerLink="/search" routerLinkActive="active">
     <mat-icon>search</mat-icon>
   </button>
-  <button mat-icon-button fxHide.lt-sm>
+  <button mat-icon-button fxHide.lt-sm (click)="showNotifications()">
     <mat-icon>notifications</mat-icon>
   </button>
   <button mat-icon-button fxHide.lt-sm [matMenuTriggerFor]="userMenu">
