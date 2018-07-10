@@ -47,10 +47,6 @@
         [text]="alertService.alert.text"
         [classes]="alertService.alert.classes"
         [solution]="alertService.alert.solution"
-        [hasButton]="alertService.alert.hasButton"
-        [textButton]="alertService.alert.textButton"
-        [hasLoadingBar]="alertService.alert.hasLoadingBar"
-        (clickButton)="alertService.clickButton()"
         (closeAlert)="alertService.strictClose()">
       </app-alert>
       <router-outlet></router-outlet>

@@ -96,7 +96,7 @@ describe('UserProfileComponent', () => {
         const spy = spyOnProperty(i18nService, 'language', 'set');
 
         component.setLanguage();
-        
+
         expect(spy).toHaveBeenCalled();
       });
     });

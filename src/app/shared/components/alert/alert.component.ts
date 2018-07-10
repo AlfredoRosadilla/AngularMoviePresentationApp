@@ -8,14 +8,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class AlertComponent implements OnInit {
   @Input() classes = '';
   @Input() type = 'error';
-  @Input() textButton = '';
-  @Input() hasButton = false;
-  @Input() hasLoadingBar = false;
   @Input() text = 'Requiered fields are missing.';
   @Input() solution = 'Please complete the required fields and try again.';
 
   @Output() closeAlert ? = new EventEmitter();
-  @Output() clickButton ? = new EventEmitter();
 
   public icon = '';
 
@@ -41,10 +37,6 @@ export class AlertComponent implements OnInit {
 
   getTranslateBase(text: string) {
     return text.toLowerCase().replace(new RegExp(' ', 'g'), '-');
-  }
-
-  fireButton() {
-    this.clickButton.emit();
   }
 
   close() {

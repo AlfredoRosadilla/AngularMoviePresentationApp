@@ -34,7 +34,63 @@ describe('ErrorHandlerService', () => {
     alertService = _alertService;
   }));
 
-  it('should be created', () => {
-    expect(alertService).toBeTruthy();
+  describe('basic tests', () => {
+    it('should be created', () => {
+      expect(alertService).toBeTruthy();
+    });
+
+    it('should have alert property', () => {
+      expect(alertService.alert).toBeTruthy();
+    });
   });
+
+  describe('Methods', () => {
+    describe('showAlert', () => {
+      it('should exist a method called showAlert', () => {
+        expect(alertService.showAlert).toBeDefined();
+      });
+
+      it('should return a promise', () => {
+        expect(alertService.showAlert() instanceof Promise).toBeTruthy();
+      })
+
+      it('should call closeAlert method', async(() => {
+        spyOn(alertService, 'closeAlert').and.returnValue(new Promise(
+          (resolve: any) => { resolve() }
+        ));
+
+        alertService.showAlert('error', {
+          lifeTime: 1
+        }).then(() => {
+          expect(alertService.closeAlert).toHaveBeenCalled();
+        });
+      }));
+
+      it('should change alert type', async(() => {
+        alertService.alert.type = 'error';
+        alertService.alert.fixed = false;
+
+        alertService.showAlert('information', { lifeTime: 10 });
+        setTimeout(() => { expect(alertService.alert.type).toEqual('information') }, 1);
+      }));
+
+      it('should not change the current alert if the last one is fixed', async(() => {
+        alertService.alert.type = 'information';
+        alertService.alert.fixed = true;
+
+        alertService.showAlert('error', { lifeTime: 10 });
+        setTimeout(() => { expect(alertService.alert.type).toEqual('information') }, 1);
+      }));
+    });
+
+    describe('closeAlert', () => {
+      it('should exist a method called closeAlert', () => {
+        expect(alertService.closeAlert).toBeDefined();
+      });
+
+      it('should return a promise', () => {
+        expect(alertService.closeAlert() instanceof Promise).toBeTruthy();
+      });
+    })
+  })
 });

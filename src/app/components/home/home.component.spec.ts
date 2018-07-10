@@ -162,7 +162,7 @@ describe('HomeComponent', () => {
             fixture.detectChanges();
 
             expect(fixture.nativeElement.querySelector('app-loader.home__spinner')).toBeNull();
-          })
+          });
         });
       }));
 

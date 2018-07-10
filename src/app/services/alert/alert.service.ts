@@ -48,13 +48,6 @@ export class AlertService {
     return this.closeAlert();
   }
 
-  clickButton($event: any) {
-    if (typeof this.alert.buttonFunction === 'function') {
-      this.alert.buttonFunction($event);
-      this.strictClose();
-    }
-  }
-
   closeAlert(): Promise<any> {
     return new Promise((resolve: any) => {
       if (this.alert.fixed) { resolve(); }
