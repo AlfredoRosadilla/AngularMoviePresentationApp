@@ -6,6 +6,10 @@
 // stylelint-disable-next-line selector-max-universal
 * {
   box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 html,

@@ -5,18 +5,12 @@
     </button>
   </div>
   <div fxHide.lt-sm>
-    <span class="brand" translate>APP_NAME</span>
+    <span class="brand" routerLink="/home" routerLinkActive="active" translate>APP_NAME</span>
     <button mat-button routerLink="/home" routerLinkActive="active">
       <span translate>header_home</span>
     </button>
     <button mat-button routerLink="/favorites" routerLinkActive="active">
       <span translate>header_favorites</span>
-    </button>
-    <button mat-button routerLink="/about" routerLinkActive="active">
-      <span translate>header_about</span>
-    </button>
-    <button mat-button routerLink="/help" routerLinkActive="active">
-      <span translate>header_help</span>
     </button>
   </div>
   <span fxFlex></span>
